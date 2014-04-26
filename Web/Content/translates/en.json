@@ -1,0 +1,14 @@
+﻿{
+    "Menu":
+    {
+        "Home": "Home",
+        "Admin": "Admin"
+    },
+ 
+    "Navbar":
+    {
+        "Language": "Language",
+        "Language.Romanian": "Romanian",
+        "Language.English": "English"
+    }  
+}

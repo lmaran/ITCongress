@@ -1,0 +1,14 @@
+﻿{
+    "Menu":
+    {
+        "Home": "Acasa",
+        "Admin": "Administrare"
+    },
+ 
+    "Navbar":
+    {
+        "Language": "Limba",
+        "Language.Romanian": "Romana",
+        "Language.English": "Engleza"
+    }  
+}

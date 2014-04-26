@@ -1,0 +1,31 @@
+﻿<!--Partial1 Loaded!
+<br />
+<ul>
+    <li ng-repeat="customer in customers | orderBy:'name'">{{ customer.name }} - {{ customer.city }}</li>
+</ul>
+<br />
+<a href="#/partial2">Load partial2</a>-->
+
+<div>
+
+    <h2>View 1</h2>
+    Name:
+    <br />
+    <input type="text" data-ng-model="filter.name"/>
+    <br />
+    <ul>
+        <li data-ng-repeat="customer in customers | filter:filter.name | orderBy:'name'">{{ customer.name }} - {{ customer.city }}</li>
+    </ul>
+
+    <br/>
+    Customer Name:<br/>
+    <input type="text" ng-model="newCustomer.name" />
+    <br/>
+
+    Customer City:<br />
+    <input type="text" data-ng-model="newCustomer.city"/>
+    <br />
+    <button class="btn btn-primary" data-ng-click="addCustomer()">Add Customer</button>
+    <br/>
+    <a href="/admin">Admin</a>
+</div>
