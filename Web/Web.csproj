@@ -130,6 +130,7 @@
     <Content Include="Scripts\README.md" />
     <Content Include="Content\translates\en.json" />
     <Content Include="Content\translates\ro.json" />
+    <Content Include="HiddenConnectionStrings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -28,4 +28,8 @@
     <button class="btn btn-primary" data-ng-click="addCustomer()">Add Customer</button>
     <br/>
     <a href="/admin">Admin</a>
+    <br/>
+    <ul>
+        <li data-ng-repeat="eventSession in eventSessions">{{ eventSession.title }} - {{ eventSession.description }}</li>
+    </ul>
 </div>

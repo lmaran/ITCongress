@@ -17,6 +17,7 @@ using Web.Repositories;
 
 namespace Web.Controllers
 {
+    //[RoutePrefix("api")]
     public class EventSessionsController : ApiController
     {
 
@@ -33,6 +34,7 @@ namespace Web.Controllers
         }
 
         //GET /v1/events/968000000_it-congress/eventsessions
+        [Route("api/{eventId}/eventSessions")]
         public IEnumerable<EventSessionViewModel> Get(String eventId) //pk
         {
             return _eventSessionRepository.GetByPk(eventId);
