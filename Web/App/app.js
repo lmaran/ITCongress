@@ -7,11 +7,21 @@ app.config(function ($routeProvider, $locationProvider, $translateProvider) {
                 controller: 'homeController',
                 templateUrl: 'App/views/home.html'
             })
-        .when('/admin',
+        .when('/Admin',
             {
                 controller: 'homeController',
                 templateUrl: 'App/views/admin.html'
             })
+        .when('/Account/Login', {
+            controller: 'loginController',
+            templateUrl: 'App/views/login.html',
+            title: 'Login'
+        })
+        .when('/Account/Register', {
+            controller: 'registerController',
+            templateUrl: 'App/views/register.html',
+            title: 'Register'
+        })
         .otherwise({ redirectTo: '/' });
 
     // use the HTML5 History API - http://scotch.io/quick-tips/js/angular/pretty-urls-in-angularjs-removing-the-hashtag
@@ -31,3 +41,44 @@ app.config(function ($routeProvider, $locationProvider, $translateProvider) {
         });
 
 });
+
+
+//// https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/
+//app.factory('authInterceptor', function ($rootScope, $q, $window) {
+//    return {
+//        request: function (config) {
+//            config.headers = config.headers || {};
+//            if ($window.sessionStorage.token) {
+//                config.headers.Authorization = 'Bearer ' + $window.sessionStorage.token;
+//            }
+//            return config;
+//        },
+//        response: function (response) {
+//            if (response.status === 401) {
+//                // handle the case where the user is not authenticated
+//            }
+//            return response || $q.when(response);
+//        }
+//    };
+//});
+
+//app.config(function ($httpProvider) {
+//    $httpProvider.interceptors.push('authInterceptor');
+//});
+
+
+
+//// Intercept 401s and 403s and redirect you to login
+//$httpProvider.interceptors.push(['$q', '$location', function ($q, $location) {
+//    return {
+//        'responseError': function (response) {
+//            if (response.status === 401 || response.status === 403) {
+//                $location.path('/login');
+//                return $q.reject(response);
+//            }
+//            else {
+//                return $q.reject(response);
+//            }
+//        }
+//    };
+//}]);

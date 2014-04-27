@@ -5,7 +5,7 @@
             'link': '/'
         }, {
             'title': 'Admin',
-            'link': '/admin'
+            'link': '/Admin'
     }];
 
     $scope.isActive = function (route) {

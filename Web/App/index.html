@@ -2,7 +2,7 @@
 <html ng-app="itcongressApp">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <!--<base href="/" />-->
+    <base href="/" /> <!--fara asta nu functioneaza rutele cu >=2 segmente ce ajung pe server-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,8 +38,8 @@
         <div class="container">
 
             <div class="starter-template">
-                <h1>Bootstrap starter template</h1>
-                <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+                <!--<h1>Bootstrap starter template</h1>
+                <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>-->
                 <div ng-view=""></div>
             </div>
 
@@ -62,6 +62,8 @@
 
         <script src="App/controllers/homeController.js"></script>
         <script src="App/controllers/navbarController.js"></script>
+        <script src="App/controllers/registerController.js"></script>
+        <script src="App/controllers/loginController.js"></script>
 
         <script src="App/services/homeService.js"></script>
 

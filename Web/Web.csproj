@@ -141,12 +141,19 @@
   <ItemGroup>
     <Content Include="App\app.js" />
     <Content Include="App\controllers\homeController.js" />
+    <Content Include="App\controllers\loginController.js" />
     <Content Include="App\controllers\navbarController.js" />
+    <Content Include="App\controllers\registerController.js" />
     <Content Include="App\index.html" />
+    <Content Include="App\services\authService.js" />
+    <Content Include="App\services\sessionService.js" />
+    <Content Include="App\services\userServices.js" />
+    <Content Include="App\views\login.html" />
     <Content Include="App\views\navbar.html" />
     <Content Include="App\views\home.html" />
     <Content Include="App\views\admin.html" />
     <Content Include="App\services\homeService.js" />
+    <Content Include="App\views\register.html" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />

@@ -7,6 +7,9 @@
  
     "Navbar":
     {
+        "Register": "Inregistrare",
+        "Login": "Autentificare",
+
         "Language": "Limba",
         "Language.Romanian": "Romana",
         "Language.English": "Engleza"
