@@ -423,7 +423,7 @@
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\EventsController.cs" />
-    <Compile Include="Controllers\EventSessionsController.cs" />
+    <Compile Include="Controllers\SessionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisteredAttendeesController.cs" />
     <Compile Include="Controllers\UserAgendaController.cs" />
@@ -432,18 +432,18 @@
     <Compile Include="Helpers\RemainingTime.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EventEntry.cs" />
-    <Compile Include="Models\EventSessionEntry.cs" />
+    <Compile Include="Models\SessionEntry.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
-    <Compile Include="Repositories\EventSessionRepository.cs" />
+    <Compile Include="Repositories\SessionRepository.cs" />
     <Compile Include="Repositories\StorageConfig.cs" />
     <Compile Include="Repositories\TableStorage.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AgendaViewModel.cs" />
-    <Compile Include="ViewModels\EventSessionViewModel.cs" />
     <Compile Include="ViewModels\EventViewModel.cs" />
+    <Compile Include="ViewModels\SessionViewModel.cs" />
     <Compile Include="ViewModels\UserAgendaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

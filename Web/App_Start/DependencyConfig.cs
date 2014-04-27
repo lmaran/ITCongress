@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
+using Web.Repositories;
 //using IDependencyResolver = System.Web.Http.Dependencies.IDependencyResolver;
 
 namespace Web.App_Start
@@ -13,10 +14,8 @@ namespace Web.App_Start
         {
             var container = new UnityContainer();
 
-            //container.RegisterType<IImportRepository, ImportRepository>();
-            //container.RegisterType<IModelRepository, ModelRepository>();
-            //container.RegisterType<IGadgetRepository, GadgetRepository>();
-            //container.RegisterType<IBiCodesRepository, BiCodesRepository>();
+            container.RegisterType<IEventRepository, EventRepository>();
+            container.RegisterType<ISessionRepository, SessionRepository>();
 
             config.DependencyResolver = new UnityResolver(container);
         }

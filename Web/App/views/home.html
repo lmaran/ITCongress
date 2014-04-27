@@ -9,7 +9,7 @@
 <div>
 
     <h2>View 1</h2>
-    Name:
+    <!--Name:
     <br />
     <input type="text" data-ng-model="filter.name"/>
     <br />
@@ -28,8 +28,8 @@
     <button class="btn btn-primary" data-ng-click="addCustomer()">Add Customer</button>
     <br/>
     <a href="/admin">Admin</a>
-    <br/>
+    <br/>-->
     <ul>
-        <li data-ng-repeat="eventSession in eventSessions">{{ eventSession.title }} - {{ eventSession.description }}</li>
+        <li data-ng-repeat="session in sessions">{{ session.brand }} - {{ session.title }}</li>
     </ul>
 </div>

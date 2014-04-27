@@ -1,12 +1,9 @@
-﻿using Web.Models;
+﻿using System.Collections.Generic;
+using System.Web.Http;
+using Web.Models;
 using Web.Repositories;
 using Web.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+
 
 namespace Web.Controllers
 {
@@ -15,23 +12,15 @@ namespace Web.Controllers
 
         private readonly IEventRepository _eventRepository;
 
-        public EventsController()            //: this(AzureTableContext.DefaultAzureTableContext())
-            : this(new EventRepository())
-        {
-        }
-
         public EventsController(IEventRepository eventRepository)
         {
             this._eventRepository = eventRepository;
         }
 
-        // GET api/events
+        [Route("api/events")]
         public IEnumerable<EventViewModel> Get()
         {
-            //return new string[] { "value1", "value2" };
-
-            var e = _eventRepository.GetAll();
-            return e;
+            return _eventRepository.GetAll();
         }
 
 

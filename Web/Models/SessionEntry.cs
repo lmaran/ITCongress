@@ -8,24 +8,28 @@ using Microsoft.WindowsAzure.Storage.Table;
 
 namespace Web.Models
 {
-    public class EventEntry : TableEntity
+    public class SessionEntry : TableEntity
     {
         //vezi http://robbincremers.me/2012/03/01/everything-you-need-to-know-about-windows-azure-table-storage-to-use-a-scalable-non-relational-structured-data-store/
         //2 constructori
-        public EventEntry()
+        public SessionEntry()
         {
             base.PartitionKey = "eta2u";
             base.RowKey = RemainingTime.Seconds().ToString() + "_" + Guid.NewGuid().ToString(); //ca sa pot afisa ultimele "x" inregistrari...vezi "AzureTable Strategy.docx"
         }
 
-        public EventEntry(string partitionKey, string rowKey)
+        public SessionEntry(string partitionKey, string rowKey)
         {
             base.PartitionKey = partitionKey;
             base.RowKey = rowKey;
         }
 
+        public string Brand { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
+        public string Speakers { get; set; } // serializat Json...Azure nu permite tipul List<T>; speakeri
+        public Int32 MaxAttendees { get; set; }
+        public Int32 CurrentAttendees { get; set; }
+        public Int32 Duration { get; set; } // in session length, in minutes
 
     }
 }

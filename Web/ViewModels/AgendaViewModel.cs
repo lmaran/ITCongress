@@ -21,7 +21,7 @@ namespace Web.ViewModels
     public class AgendaOnRoom
     {
         public string Room { get; set; }
-        public EventSessionViewModel EventSession { get; set; }
+        public SessionViewModel EventSession { get; set; }
     }
 }
 

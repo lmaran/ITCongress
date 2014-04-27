@@ -23,7 +23,7 @@ namespace Web.ViewModels
     {
         public string Room { get; set; }
         public string SessionStateForUser { get; set; } //Registered, Unregistered, Busy, Full
-        public EventSessionViewModel EventSession { get; set; }
+        public SessionViewModel EventSession { get; set; }
     }
 }
 

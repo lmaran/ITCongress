@@ -8,9 +8,12 @@ namespace Web.ViewModels
 {
     public class EventViewModel
     {
-        public string Code { get; set; }
+        public string EventYear { get; set; } // PK (e.g. 2014)
+        public string EventId { get; set; } // RK (e.g. itcongress2014)
+
         public string Title { get; set; }
         public string Description { get; set; }
+
     }
 
 }

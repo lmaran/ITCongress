@@ -20,8 +20,8 @@
         //    alert(JSON.stringify(data));
         //});
 
-        homeService.getEventSessions().then(function (data) {
-            $scope.eventSessions = data;
+        homeService.getSessions().then(function (data) {
+            $scope.sessions = data;
             //alert(JSON.stringify(data));
         });
     };

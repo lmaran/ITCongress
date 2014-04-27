@@ -24,10 +24,10 @@
 
     };
 
-    factory.getEventSessions = function () {
+    factory.getSessions = function () {
         //return $http.get('/api/968000000_it-congress/eventsessions');
 
-        return $http.get('/api/968000000_it-congress/eventsessions').then(function (result) {
+        return $http.get('/api/itcongress2014/sessions').then(function (result) {
             return result.data;
         });
     };
