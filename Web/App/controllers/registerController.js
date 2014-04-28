@@ -1,31 +1,19 @@
-﻿//app.controller('registerController', ['$scope', 'authSession', '$location', function ($scope, Auth, $location) {
-app.controller('registerController', ['$scope', function ($scope) {
-    $scope.user = {};
-    $scope.errors = {};
+﻿app.controller('registerController', function ($scope, $rootScope, $http, $window, $location) {
+    $scope.user = { email: 'test...@outlook.com', password: 'Aa1111@', confirmPassword: 'Aa1111@' };
+    //$scope.errors = {};
 
-    //$scope.register = function (form) {
-    //    $scope.submitted = true;
+    $scope.message = '';
 
-    //    if (form.$valid) {
-    //        Auth.createUser({
-    //            name: $scope.user.name,
-    //            email: $scope.user.email,
-    //            password: $scope.user.password
-    //        })
-    //        .then(function () {
-    //            // Account created, redirect to home
-    //            $location.path('/');
-    //        })
-    //        .catch(function (err) {
-    //            err = err.data;
-    //            $scope.errors = {};
+    $scope.submit = function () {
+        $http
+            .post('/api/account/register', $scope.user)
+            .success(function (data, status, headers, config) {
+                $scope.message = JSON.stringify(data, null, 4);
+                //$location.path('/');
+          })
+          .error(function (data, status, headers, config) {
+              $scope.message = JSON.stringify(data, null, 4);
+          });
+    };
 
-    //            // Update validity of form fields that match the mongoose errors
-    //            angular.forEach(err.errors, function (error, field) {
-    //                form[field].$setValidity('mongoose', false);
-    //                $scope.errors[field] = error.type;
-    //            });
-    //        });
-    //    }
-    //};
-}]);
+});

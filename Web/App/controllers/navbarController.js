@@ -1,7 +1,6 @@
 ﻿app.controller('navbarController', function ($scope, $location, $translate, $rootScope, $window) {
 
-    // Get currentUser from cookie
-    //$rootScope.currentUser = $cookieStore.get('user') || null;
+    // Get currentToken from localStorage
     $rootScope.currentToken = $window.localStorage.token || null;
 
     $scope.menu = [{
