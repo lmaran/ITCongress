@@ -9,6 +9,7 @@
     {
         "Register": "Register",
         "Login": "Log in",
+        "Logout": "Log off",
 
         "Language": "Language",
         "Language.Romanian": "Romanian",

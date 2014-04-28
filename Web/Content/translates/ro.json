@@ -9,6 +9,7 @@
     {
         "Register": "Inregistrare",
         "Login": "Autentificare",
+        "Logout": "Deconectare",
 
         "Language": "Limba",
         "Language.Romanian": "Romana",

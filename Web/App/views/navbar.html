@@ -9,14 +9,18 @@
         <a href="/" class="navbar-brand">ITCongress</a>
     </div>
     <div class="navbar-collapse collapse">
+
         <ul class="nav navbar-nav">
             <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
                 <a ng-href=" {{item.link}}">{{'Menu.' + item.title | translate}}</a>
             </li>
         </ul>
+
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/Account/Register" id="registerLink"> {{'Navbar.Register'| translate}}</a></li>
-            <li><a href="/Account/Login" id="loginLink">{{'Navbar.Login'| translate}}</a></li>
+            <li ng-hide="currentToken" ng-class="{active: isActive('/Account/Register')}"><a href="/Account/Register" id="registerLink"> {{'Navbar.Register'| translate}}</a></li>
+            <li ng-hide="currentToken" ng-class="{active: isActive('/Account/Login')}"><a href="/Account/Login" id="loginLink">{{'Navbar.Login'| translate}}</a></li>
+            <li ng-show="currentToken"><a href="" ng-click="logout()">{{'Navbar.Logout' | translate}}</a></li>
+
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown">{{'Navbar.Language'|translate}} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -25,5 +29,6 @@
                 </ul>
             </li>
         </ul>
+
     </div>
 </div>
