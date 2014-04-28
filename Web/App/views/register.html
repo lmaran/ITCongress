@@ -6,21 +6,58 @@
     <form ng-submit="submit()" class="form-horizontal" role="form">
 
         <div class="form-group">
+            <label class="col-md-2 control-label" for="Hometown">Last Name</label>
+            <div class="col-md-10">
+                <input class="form-control" ng-model="user.lastName" type="text" name="lastName" placeholder="Nume de Familie" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="FirstName">First Name</label>
+            <div class="col-md-10">
+                <input class="form-control" ng-model="user.firstName" type="text" name="firstName" placeholder="Prenume" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="PhoneNumber">Phone Number</label>
+            <div class="col-md-10">
+                <input class="form-control" ng-model="user.phoneNumber" type="text" name="phoneNumber" placeholder="Telefon Mobil" />
+            </div>
+        </div>
+        <div class="form-group">
             <label class="col-md-2 control-label" for="Email">Email</label>
             <div class="col-md-10">
                 <input class="form-control" ng-model="user.email" type="text" name="email" placeholder="Email" />
             </div>
         </div>
         <div class="form-group">
+            <label class="col-md-2 control-label" for="Company">Company</label>
+            <div class="col-md-10">
+                <input class="form-control" ng-model="user.company" type="text" name="company" placeholder="Firma / Institutie" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="Hometown">City</label>
+            <div class="col-md-10">
+                <input class="form-control" ng-model="user.hometown" type="text" name="hometown" placeholder="Localitate" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="Hometown">Title</label>
+            <div class="col-md-10">
+                <input class="form-control" ng-model="user.title" type="text" name="title" placeholder="Functie" />
+            </div>
+        </div>
+
+        <div class="form-group">
             <label class="col-md-2 control-label" for="Password">Password</label>
             <div class="col-md-10">
-                <input class="form-control" ng-model="user.password" type="password" name="password" placeholder="Password" />
+                <input class="form-control" ng-model="user.password" type="password" name="password" placeholder="Parola" />
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-2 control-label" for="Password">Password</label>
             <div class="col-md-10">
-                <input class="form-control" ng-model="user.confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password" />
+                <input class="form-control" ng-model="user.confirmPassword" type="password" name="confirmPassword" placeholder="Confirmare Parola" />
             </div>
         </div>
 

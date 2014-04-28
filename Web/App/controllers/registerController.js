@@ -1,5 +1,5 @@
 ﻿app.controller('registerController', function ($scope, $rootScope, $http, $window, $location, authService) {
-    $scope.user = { email: 'test@outlook.com', password: 'Aa1111@', confirmPassword: 'Aa1111@' };
+    $scope.user = { email: 'test@outlook.com', password: 'aaaa', confirmPassword: 'aaaa' };
     //$scope.errors = {};
 
     $scope.message = '';
