@@ -1,12 +1,15 @@
 ﻿{
     "Menu":
     {
-        "Home": "Acasa",
-        "Admin": "Administrare"
+        "Home": "Acasa"
     },
  
     "Navbar":
     {
+        "Admin":"Administrare",
+        "Admin.Users":"Utilizatori Inregistrati",
+        "Admin.WhiteList":"Email-uri aprobate",
+
         "Register": "Inregistrare",
         "Login": "Autentificare",
         "Logout": "Deconectare",

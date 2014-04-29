@@ -140,6 +140,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\controllers\userController.js" />
+    <Content Include="App\controllers\whiteListController.js" />
+    <Content Include="App\views\users.html" />
+    <Content Include="App\views\whiteList.html" />
     <Content Include="packages.config" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\errors.json" />
@@ -172,7 +176,7 @@
     <Content Include="App\index2.html" />
     <Content Include="App\services\authService.js" />
     <Content Include="App\services\sessionService.js" />
-    <Content Include="App\services\userServices.js" />
+    <Content Include="App\services\userService.js" />
     <Content Include="App\views\login.html" />
     <Content Include="App\views\navbar.html" />
     <Content Include="App\views\home.html" />
@@ -456,6 +460,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WhiteListController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\SessionsController.cs" />
@@ -494,6 +499,7 @@
   <ItemGroup>
     <Folder Include="App\directives\" />
     <Folder Include="App\filters\" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201404290657040_AddStatus.resx">

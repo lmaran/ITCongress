@@ -1,12 +1,15 @@
 ﻿{
     "Menu":
     {
-        "Home": "Home",
-        "Admin": "Admin"
+        "Home": "Home"
     },
  
     "Navbar":
     {
+        "Admin":"Admin",
+        "Admin.Users":"Registered Users",
+        "Admin.WhiteList":"Email \"WhiteList\"",
+
         "Register": "Register",
         "Login": "Log in",
         "Logout": "Log off",

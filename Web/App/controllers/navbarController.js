@@ -4,12 +4,14 @@
     $rootScope.currentToken = $window.localStorage.token || null;
 
     $scope.menu = [{
-            'title': 'Home',
-            'link': '/'
-        }, {
-            'title': 'Admin',
-            'link': '/Admin'
-        }];
+        'title': 'Home',
+        'link': '/'
+    }
+        //, {
+        //    'title': 'Admin',
+        //    'link': '/Admin'
+        //}
+    ];
 
     $scope.logout = function () {
         //Auth.logout()

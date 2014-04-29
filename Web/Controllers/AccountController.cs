@@ -341,7 +341,7 @@ namespace Web.Controllers
             var tmp = _whiteListRepository.Get("itcongress2014", model.Email);
             if (tmp == "Not Found")
             {
-                status = "WaitingForAproval";
+                status = "WaitingForApproval";
             }
             // *****************
 

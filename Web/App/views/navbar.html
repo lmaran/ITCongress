@@ -14,6 +14,15 @@
             <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
                 <a ng-href=" {{item.link}}">{{'Menu.' + item.title | translate}}</a>
             </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">{{'Navbar.Admin'|translate}} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a ng-href="/Admin/Users">{{'Navbar.Admin.Users'|translate}}</a></li>
+                    <li><a ng-href="/Admin/WhiteList">{{'Navbar.Admin.WhiteList'|translate}}</a></li>
+                </ul>
+            </li>
+
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

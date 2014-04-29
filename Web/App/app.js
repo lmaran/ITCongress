@@ -22,6 +22,16 @@ app.config(function ($routeProvider, $locationProvider, $translateProvider) {
             templateUrl: 'App/views/register.html',
             title: 'Register'
         })
+        .when('/Admin/Users', {
+            controller: 'userController',
+            templateUrl: 'App/views/users.html',
+            title: 'Users'
+        })
+        .when('/Admin/WhiteList', {
+            controller: 'whiteListController',
+            templateUrl: 'App/views/whiteList.html',
+            title: 'WhiteList'
+        })
         .otherwise({ redirectTo: '/' });
 
     // use the HTML5 History API - http://scotch.io/quick-tips/js/angular/pretty-urls-in-angularjs-removing-the-hashtag

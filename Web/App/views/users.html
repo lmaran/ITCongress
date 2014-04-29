@@ -1,0 +1,38 @@
+﻿<div>
+    <h2>Registered Users</h2>
+
+    <div class="table-responsive">
+        <table class="table table-responsive table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>LastName</th>
+                    <th>FirstName</th>
+                    <th>PhoneNumber</th>
+                    <th>Email</th>
+                    <th>Company</th>
+                    <th>City</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="user in users" ng-class="{'warning':user.status=='WaitingForApproval', 'danger':user.status=='Rejected', 'success':user.status=='Approved'}">
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.phoneNumber }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.company }}</td>
+                    <td>{{ user.city }}</td>
+                    <td>{{ user.title }}</td>
+                    <td>{{ user.status }}</td>
+                    <td>
+                        <button ng-if="user.status=='WaitingForApproval' || user.status=='Rejected'" type="button" class="btn btn-xs btn-success" ng-click="changeStatus(user.id, 'Approved')"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                        <button ng-if="user.status=='WaitingForApproval' || user.status=='Approved'" type="button" class="btn btn-xs btn-danger" ng-click="changeStatus(user.id, 'Rejected')"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+</div>
