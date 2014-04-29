@@ -30,5 +30,5 @@ App_Data/*.mdf
 App_Data/*.ldf
 
 # -------------------------------
-HiddenConnectionStrings.config
-App.config
+Web/HiddenConnectionStrings.config
+ImportWhiteList/App.config
