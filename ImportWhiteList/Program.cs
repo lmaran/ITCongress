@@ -21,6 +21,7 @@ namespace ImportWhiteList
                 Console.WriteLine("Starting import data...");
 
 
+
                 //var connString = ConfigurationManager.AppSettings["Solution4AzureStorage"];
                 //var storageAccount = CloudStorageAccount.Parse(connString);
                 //var tableClient = storageAccount.CreateCloudTableClient();
