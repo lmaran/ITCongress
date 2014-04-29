@@ -17,6 +17,7 @@ using Web.Models;
 using Web.Providers;
 using Web.Results;
 using Web.App_Start;
+using Web.Repositories;
 
 namespace Web.Controllers
 {
@@ -26,16 +27,20 @@ namespace Web.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
+        //private readonly IWhiteListRepository _whiteListRepository;
 
         public AccountController()
         {
         }
 
         public AccountController(ApplicationUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+            ISecureDataFormat<AuthenticationTicket> accessTokenFormat
+            //,IWhiteListRepository whiteListRepository
+            )
         {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
+            //this._whiteListRepository = whiteListRepository;
         }
 
         public ApplicationUserManager UserManager
@@ -331,6 +336,13 @@ namespace Web.Controllers
 
             // *****************
             var status = "ApprovedByDefault";
+
+            var _whiteListRepository = new WhiteListRepository(); // TODO: re-factor this
+            var tmp = _whiteListRepository.Get("itcongress2014", model.Email);
+            if (tmp == "Not Found")
+            {
+                status = "WaitingForAproval";
+            }
             // *****************
 
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, Hometown = model.Hometown, PhoneNumber = model.PhoneNumber,

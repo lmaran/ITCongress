@@ -46,7 +46,7 @@ namespace Web.Repositories
             AzureKeyValidator.ValidatePartitionKey(pk); //altfel da eroare daca string-ul este null, gol, >512ch sau are ch. speciale
             AzureKeyValidator.ValidateRowKey(rk);
 
-            var operation = TableOperation.Retrieve(pk, rk);
+            var operation = TableOperation.Retrieve<T>(pk, rk);
             var result = Table.Execute(operation);
             return (T)result.Result; // this will be null if it doesn't exist ...daca T este de tip Interfata, nu poti folosi la final constructia "as T"
         }
