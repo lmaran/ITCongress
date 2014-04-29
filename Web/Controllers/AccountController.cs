@@ -329,8 +329,12 @@ namespace Web.Controllers
                 return BadRequest(ModelState);
             }
 
+            // *****************
+            var status = "AprovedByDefault";
+            // *****************
+
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, Hometown = model.Hometown, PhoneNumber = model.PhoneNumber,
-            FirstName = model.FirstName, LastName = model.LastName, Title = model.Title, Company = model.Company};
+            FirstName = model.FirstName, LastName = model.LastName, Title = model.Title, Company = model.Company, Status = status};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

@@ -464,6 +464,10 @@
     <Compile Include="Helpers\AzureKeyValidator.cs" />
     <Compile Include="Helpers\HtmlActionResult.cs" />
     <Compile Include="Helpers\RemainingTime.cs" />
+    <Compile Include="Migrations\201404290657040_AddStatus.cs" />
+    <Compile Include="Migrations\201404290657040_AddStatus.Designer.cs">
+      <DependentUpon>201404290657040_AddStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -487,6 +491,11 @@
   <ItemGroup>
     <Folder Include="App\directives\" />
     <Folder Include="App\filters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201404290657040_AddStatus.resx">
+      <DependentUpon>201404290657040_AddStatus.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
