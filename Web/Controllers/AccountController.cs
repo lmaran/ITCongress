@@ -330,7 +330,7 @@ namespace Web.Controllers
             }
 
             // *****************
-            var status = "AprovedByDefault";
+            var status = "ApprovedByDefault";
             // *****************
 
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, Hometown = model.Hometown, PhoneNumber = model.PhoneNumber,
