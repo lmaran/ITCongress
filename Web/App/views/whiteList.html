@@ -1,8 +1,24 @@
 ﻿<div>
+    <h2>White List</h2>
 
-    <h2>WhiteList</h2>
+    <div class="table-responsive">
+        <table class="table table-responsive table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="item in whiteList">
+                    <td>{{ item }}</td>
+                    <td>
+                        <!--<button type="button" class="btn btn-xs btn-success" ng-click="delete(user.id)"><span class="glyphicon glyphicon-thumbs-up"></span></button>-->                       
+                        <a ng-click="delete(item)">delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-    <!--<ul>
-        <li data-ng-repeat="user in users">{{ user.email }} - {{ user.firsName }}</li>
-    </ul>-->
+    </div>
 </div>

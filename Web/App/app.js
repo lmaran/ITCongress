@@ -1,4 +1,4 @@
-﻿var app = angular.module('itcongressApp', ['ngRoute', 'pascalprecht.translate', 'ngCookies']);
+﻿var app = angular.module('itcongressApp', ['ngRoute', 'pascalprecht.translate', 'ngCookies', 'ui.bootstrap']);
 
 app.config(function ($routeProvider, $locationProvider, $translateProvider) {
     $routeProvider

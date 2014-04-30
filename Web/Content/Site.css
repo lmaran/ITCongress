@@ -27,3 +27,7 @@ textarea {
         padding: 10px 15px;
     }
 }
+
+a {
+    cursor: pointer;
+}

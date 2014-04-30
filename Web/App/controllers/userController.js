@@ -2,7 +2,7 @@
     $scope.users = [];
 
     $scope.changeStatus = function (id, newStatus) {
-        // get the index for selected user
+        // get the index for selected item
         var i = 0;
         for (i in $scope.users) {
             if ($scope.users[i].id == id) break;
