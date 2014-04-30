@@ -339,7 +339,7 @@ namespace Web.Controllers
 
             var _whiteListRepository = new WhiteListRepository(); // TODO: re-factor this
             var tmp = _whiteListRepository.Get("itcongress2014", model.Email);
-            if (tmp == "Not Found")
+            if (tmp == 0) //not found
             {
                 status = "WaitingForApproval";
             }

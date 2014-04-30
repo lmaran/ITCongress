@@ -25,15 +25,15 @@ namespace Web.Repositories
             return entitiesTable.Select(x => x.RowKey);
         }
 
-        public string Get(string eventId, string email)
+        public int Get(string eventId, string email)
         {
             var entry = this.Retrieve(eventId, email);
 
             if (entry == null)
                 //throw new HttpResponseException(HttpStatusCode.NotFound);
-                return "Not Found";
+                return 0;
             else
-                return entry.RowKey;
+                return 1;
         }
 
         public void Add(string eventId, string email)
@@ -59,7 +59,7 @@ namespace Web.Repositories
     public interface IWhiteListRepository : ITableStorage<WhiteListEntry>
     {
         IEnumerable<string> GetAll(string eventId);
-        string Get(string eventId, string email);
+        int Get(string eventId, string email);
         void Add(string eventId, string email);
         void Delete(string eventId, string email);
     }

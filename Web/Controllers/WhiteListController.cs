@@ -23,6 +23,13 @@ namespace Web.Controllers
             return _whiteListRepository.GetAll(eventId);
         }
 
+        [HttpGet]
+        [Route("api/{eventId}/whitelist/{email}")]
+        public int Get(string eventId, string email)
+        {
+            return _whiteListRepository.Get(eventId, email);
+        }
+
         [HttpPost]
         [Route("api/{eventId}/whitelist/{email}")]
         public void Post(string eventId, string email)

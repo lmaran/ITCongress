@@ -16,5 +16,11 @@
         return $http.post('/api/' + eventId + '/whiteList/' + encodeURIComponent(email) + '/');
     };
 
+    factory.get = function (eventId, email) {
+        return $http.get('/api/' + eventId + '/whiteList/' + encodeURIComponent(email) + '/').then(function (result) {
+            return result.data;
+        });
+    };
+
     return factory;
 });

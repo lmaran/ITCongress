@@ -1,12 +1,45 @@
-﻿app.controller('registerController', function ($scope, $rootScope, $http, $window, $location, authService) {
+﻿app.controller('registerController', function ($scope, $rootScope, $http, $window, $location, authService, whiteListService) {
     //$scope.user = { email: 'test@outlook.com', password: 'aaaa', confirmPassword: 'aaaa' };
     $scope.user = {};
     //$scope.errors = {};
 
+    function validateEmail(email) {
+        // http://stackoverflow.com/a/46181
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    } 
+
     $scope.message = '';
 
-    $scope.submit = function (userForm) {
+    $scope.isApproved = false;
+    $scope.notApproved = false;
 
+    $scope.checkEmail = function () {
+        //var email = $scope.user.email;
+        if (!validateEmail($scope.user.email)) {
+            alert('Enter a valid email!');
+        } else {
+
+            whiteListService.get("itcongress2014", $scope.user.email)
+                .then(function (data) {
+                    if (data == 0) { //not found
+                        $scope.isApproved = false;
+                        $scope.notApproved = true;
+                    } else {
+                        $scope.isApproved = true;
+                        $scope.notApproved = false;
+                    };
+                })
+                .catch(function (err) {
+                    delete $window.localStorage.token;
+                    $rootScope.currentToken = null;
+
+                    alert(JSON.stringify(err.data, null, 4));
+                });
+        }
+    }
+
+    $scope.submit = function (userForm) {
         $scope.submitted = true;
         //alert(userForm.$valid);
         if (userForm.$valid) {

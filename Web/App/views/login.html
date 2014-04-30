@@ -6,20 +6,20 @@
     <form ng-submit="submit(user)" class="form-horizontal max-width" role="form">
 
         <div class="form-group">
-            <label class="col-md-2 control-label" for="Email">Email</label>
-            <div class="col-md-10">
+            <label class="col-sm-2 control-label" for="Email">Email</label>
+            <div class="col-sm-4">
                 <input class="form-control" ng-model="user.userName" type="text" name="userName" placeholder="Email" />
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label" for="Password">Password</label>
-            <div class="col-md-10">
+            <label class="col-sm-2 control-label" for="Password">Password</label>
+            <div class="col-sm-4">
                 <input class="form-control" ng-model="user.password" type="password" name="password" placeholder="Password" />
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-offset-2 col-sm-4">
                 <input type="submit" value="Login" class="btn btn-primary" />
             </div>
         </div>
@@ -27,8 +27,8 @@
             <a href="/Account/Register">Register as a new user</a>
         </p>
 
-        LocalSorage Token:<pre>{{$root.currentToken}}</pre>
-        <pre>{{message}}</pre>
+        <!--LocalSorage Token:<pre>{{$root.currentToken}}</pre>
+        <pre>{{message}}</pre>-->
 
     </form>
 

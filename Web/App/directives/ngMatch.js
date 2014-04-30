@@ -1,5 +1,5 @@
-﻿app.directive('match', function () {
-    // http://ngmodules.org/modules/angular-input-match
+﻿// http://ngmodules.org/modules/angular-input-match
+app.directive('match', function () {
     return {
         require: 'ngModel',
         restrict: 'A',
