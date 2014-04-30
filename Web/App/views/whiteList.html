@@ -1,6 +1,23 @@
 ﻿<div>
     <h2>White List</h2>
 
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="input-group">
+                <input ng-model="newEmail" name="newEmail" type="text" class="form-control" placeholder="Enter a new email here">
+                <span ng-click="add()" class="input-group-btn"><button class="btn btn-primary" type="button">Add Email</button></span>
+            </div>
+        </div>
+
+        <div class="col-lg-3 pull-right">
+            <div class="input-group">
+                <input ng-model="search" name="newEmail" type="text" class="form-control" placeholder="Search">
+                <span ng-click="search()" class="input-group-btn"><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button></span>
+            </div>
+        </div>
+    </div>
+
+
     <div class="table-responsive">
         <table class="table table-responsive table-hover table-condensed">
             <thead>
@@ -10,15 +27,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr data-ng-repeat="item in whiteList">
+                <tr data-ng-repeat="item in whiteList | filter:search">
                     <td>{{ item }}</td>
                     <td>
-                        <!--<button type="button" class="btn btn-xs btn-success" ng-click="delete(user.id)"><span class="glyphicon glyphicon-thumbs-up"></span></button>-->                       
                         <a ng-click="delete(item)">delete</a>
                     </td>
                 </tr>
             </tbody>
         </table>
-
     </div>
+
 </div>

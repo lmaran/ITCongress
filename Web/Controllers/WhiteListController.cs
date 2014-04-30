@@ -18,15 +18,23 @@ namespace Web.Controllers
         }
 
         [Route("api/{eventId}/whitelist")]
-        public IEnumerable<string> Get(string eventId)
+        public IEnumerable<string> GetAll(string eventId)
         {
             return _whiteListRepository.GetAll(eventId);
         }
 
+        [HttpPost]
         [Route("api/{eventId}/whitelist/{email}")]
-        public string Get(string eventId, string email)
+        public void Post(string eventId, string email)
         {
-            return _whiteListRepository.Get(eventId, email);
+            _whiteListRepository.Add(eventId, email);
+        }
+
+        [HttpDelete]
+        [Route("api/{eventId}/whitelist/{email}")]
+        public void Delete(string eventId, string email)
+        {
+            _whiteListRepository.Delete(eventId, email);
         }
 
 

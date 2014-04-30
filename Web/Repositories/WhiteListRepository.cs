@@ -36,11 +36,31 @@ namespace Web.Repositories
                 return entry.RowKey;
         }
 
+        public void Add(string eventId, string email)
+        {
+            var item = new WhiteListEntry();
+            item.PartitionKey = eventId;
+            item.RowKey = email;
+            this.Insert(item);
+
+        }
+
+        public void Delete(string eventId, string email)
+        {
+            var item = new WhiteListEntry();
+            item.PartitionKey = eventId;
+            item.RowKey = email;
+            this.Delete(item);
+
+        }
+
     }
 
     public interface IWhiteListRepository : ITableStorage<WhiteListEntry>
     {
         IEnumerable<string> GetAll(string eventId);
         string Get(string eventId, string email);
+        void Add(string eventId, string email);
+        void Delete(string eventId, string email);
     }
 }

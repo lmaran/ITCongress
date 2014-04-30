@@ -35,6 +35,13 @@ namespace Web.Repositories
             return result.Etag;
         }
 
+        public virtual void Delete(T entity)
+        {
+            entity.ETag = "*"; 
+            var operation = TableOperation.Delete(entity);
+            Table.Execute(operation);
+        }
+
         public virtual IEnumerable<T> ExecuteQuery(string filter)      
         {
             var query = new TableQuery<T>().Where(filter);
@@ -58,6 +65,7 @@ namespace Web.Repositories
         string Insert(T entity);
         IEnumerable<T> ExecuteQuery(string filter);
         T Retrieve(string pk, string rk);
+        void Delete(T entity);
     }
 
 }

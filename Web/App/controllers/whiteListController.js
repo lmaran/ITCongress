@@ -1,23 +1,13 @@
 ﻿app.controller('whiteListController', function ($scope, whiteListService, confirmService) {
     $scope.whiteList = [];
+    $scope.errors = {};
 
-    //$scope.delete = function (email) {
-    //    // get the index for selected item
-    //    var i = 0;
-    //    for (i in $scope.whiteList) {
-    //        if ($scope.whiteList[i] == email) break;
-    //    };
-
-    //    //whiteListService.delete(email).then(function () {
-    //        //$scope.whiteList[i] = newStatus;
-    //        $scope.whiteList.splice(i, 1);
-    //    //})
-    //};
+    init();
 
     $scope.delete = function (email) {
+        eventId = "itcongress2014";
         confirmService.confirmation('Click ok to delete ' + email + ', otherwise click cancel.', 'Delete Email')
             .then(function () {
-                //alert('confirmed');
 
                 // get the index for selected item
                 var i = 0;
@@ -25,18 +15,30 @@
                     if ($scope.whiteList[i] == email) break;
                 };
 
-                //whiteListService.delete(email).then(function () {
-                    //$scope.whiteList[i] = newStatus;
+                whiteListService.delete(eventId, email).then(function () {
                     $scope.whiteList.splice(i, 1);
-                //})
+                })
+                .catch(function (err) {
+                    $scope.errors = JSON.stringify(err.data, null, 4);
+                    alert($scope.errors);
+                });
 
             }, function () {
                 //alert('cancelled');
             });
     };
 
+    $scope.add = function () {
+        eventId = "itcongress2014";
+        whiteListService.add(eventId, $scope.newEmail).then(function () {
+            $scope.whiteList.push($scope.newEmail);
+        })
+        .catch(function (err) {
+            $scope.errors = JSON.stringify(err.data, null, 4);
+            alert($scope.errors);
+        });
+    };
 
-    init();
 
     function init() {
         whiteListService.getWhiteList().then(function (data) {

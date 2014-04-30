@@ -1,5 +1,6 @@
 ﻿app.controller('loginController', function ($scope, $rootScope, $http, $window, $location, authService) {
-    $scope.user = { userName: 'test2@outlook.com', password: 'Aa1111@'};
+    //$scope.user = { userName: 'test2@outlook.com', password: 'Aa1111'};
+    $scope.user = {};
     //$scope.errors = {};
 
     $scope.message = '';

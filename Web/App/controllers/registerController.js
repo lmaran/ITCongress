@@ -1,5 +1,6 @@
 ﻿app.controller('registerController', function ($scope, $rootScope, $http, $window, $location, authService) {
-    $scope.user = { email: 'test@outlook.com', password: 'aaaa', confirmPassword: 'aaaa' };
+    //$scope.user = { email: 'test@outlook.com', password: 'aaaa', confirmPassword: 'aaaa' };
+    $scope.user = {};
     //$scope.errors = {};
 
     $scope.message = '';
@@ -16,7 +17,7 @@
                         $rootScope.currentToken = $window.localStorage.token;
 
                         $scope.message = JSON.stringify(data, null, 4);
-                        //$location.path('/');
+                        $location.path('/');
                     })
                     .catch(function (err) {
                         delete $window.localStorage.token;

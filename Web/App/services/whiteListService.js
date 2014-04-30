@@ -8,9 +8,13 @@
         });
     };
 
-    //factory.updateStatus = function (userId, newStatus) {
-    //    return $http.put('/api/users/' + userId + '/' + newStatus);
-    //};
+    factory.delete = function (eventId, email) {
+        return $http.delete('/api/' + eventId + '/whiteList/' + encodeURIComponent(email) + '/');
+    };
+
+    factory.add = function (eventId, email) {
+        return $http.post('/api/' + eventId + '/whiteList/' + encodeURIComponent(email) + '/');
+    };
 
     return factory;
 });
