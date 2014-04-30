@@ -143,6 +143,7 @@
     <Content Include="App\controllers\confirmController.js" />
     <Content Include="App\controllers\userController.js" />
     <Content Include="App\controllers\whiteListController.js" />
+    <Content Include="App\directives\ngMatch.js" />
     <Content Include="App\services\confirmService.js" />
     <Content Include="App\services\whiteListService.js" />
     <Content Include="App\views\confirm.html" />
@@ -501,7 +502,6 @@
     <Compile Include="ViewModels\UserAgendaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\directives\" />
     <Folder Include="App\filters\" />
     <Folder Include="App_Data\" />
   </ItemGroup>

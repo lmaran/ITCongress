@@ -27,32 +27,6 @@
 
 </head>
 <body>
-
-    <!--<div ng-controller="ModalDemoCtrl">
-        <script type="text/ng-template" id="myModalContent.html">
-            <div class="modal-header">
-                <h3>I'm a modal!</h3>
-            </div>
-            <div class="modal-body">
-                <ul>
-                    <li ng-repeat="item in items">
-                        <a ng-click="selected.item = item">{{ item }}</a>
-                    </li>
-                </ul>
-                Selected: <b>{{ selected.item }}</b>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" ng-click="ok()">OK</button>
-                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-            </div>
-        </script>
-        <button class="btn btn-default" ng-click="open()">Open me!</button>
-        <div ng-show="selected">Selection from a modal: {{ selected }}</div>
-    </div>-->
-
-
-
-
     <!--[if lt IE 9]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -93,54 +67,7 @@
     <script src="App/services/whiteListService.js"></script>
     <script src="App/services/confirmService.js"></script>
 
-
-    <!--<script>
-        angular.module('itcongressApp', ['ui.bootstrap']);
-    var ModalDemoCtrl = function ($scope, $modal, $log) {
-
-        $scope.items = ['item1', 'item2', 'item3'];
-
-        $scope.open = function () {
-
-            var modalInstance = $modal.open({
-                templateUrl: 'myModalContent.html',
-                controller: ModalInstanceCtrl,
-                resolve: {
-                    items: function () {
-                        return $scope.items;
-                    }
-                }
-            });
-
-            modalInstance.result.then(function (selectedItem) {
-                $scope.selected = selectedItem;
-            }, function () {
-                $log.info('Modal dismissed at: ' + new Date());
-            });
-        };
-    };
-
-    // Please note that $modalInstance represents a modal window (instance) dependency.
-    // It is not the same as the $modal service used above.
-
-    var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
-
-        $scope.items = items;
-        $scope.selected = {
-            item: $scope.items[0]
-        };
-
-        $scope.ok = function () {
-            $modalInstance.close($scope.selected.item);
-        };
-
-        $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
-        };
-    };
-    </script>-->
-
-
+    <script src="App/directives/ngMatch.js"></script>
 
 </body>
 </html>
