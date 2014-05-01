@@ -13,7 +13,7 @@
                 $rootScope.currentToken = $window.localStorage.token;
 
                 $scope.message = JSON.stringify(data, null, 4);
-                //$location.path('/');
+                $location.path('/');
             })
             .catch(function (err) {
                 delete $window.localStorage.token;

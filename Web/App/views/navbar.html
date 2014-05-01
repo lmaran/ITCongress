@@ -15,13 +15,13 @@
                 <a ng-href=" {{item.link}}">{{'Menu.' + item.title | translate}}</a>
             </li>
 
-            <li class="dropdown">
+            <!--<li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown">{{'Navbar.Admin'|translate}} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a ng-href="/Admin/Users">{{'Navbar.Admin.Users'|translate}}</a></li>
                     <li><a ng-href="/Admin/WhiteList">{{'Navbar.Admin.WhiteList'|translate}}</a></li>
                 </ul>
-            </li>
+            </li>-->
 
         </ul>
 
@@ -30,13 +30,13 @@
             <li ng-hide="currentToken" ng-class="{active: isActive('/Account/Login')}"><a href="/Account/Login" id="loginLink">{{'Navbar.Login'| translate}}</a></li>
             <li ng-show="currentToken"><a href="" ng-click="logout()">{{'Navbar.Logout' | translate}}</a></li>
 
-            <li class="dropdown">
+            <!--<li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown">{{'Navbar.Language'|translate}} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a ng-click="changeLanguage('en')">{{'Navbar.Language.English'|translate}}</a></li>
                     <li><a ng-click="changeLanguage('ro')">{{'Navbar.Language.Romanian'|translate}}</a></li>
                 </ul>
-            </li>
+            </li>-->
         </ul>
 
     </div>

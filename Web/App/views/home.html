@@ -8,28 +8,40 @@
 
 <div>
 
-    <h2>View 1</h2>
-    <!--Name:
-    <br />
-    <input type="text" data-ng-model="filter.name"/>
-    <br />
-    <ul>
-        <li data-ng-repeat="customer in customers | filter:filter.name | orderBy:'name'">{{ customer.name }} - {{ customer.city }}</li>
-    </ul>
+    <h2>Agenda ITCongress 2014</h2>
 
-    <br/>
-    Customer Name:<br/>
-    <input type="text" ng-model="newCustomer.name" />
-    <br/>
-
-    Customer City:<br />
-    <input type="text" data-ng-model="newCustomer.city"/>
-    <br />
-    <button class="btn btn-primary" data-ng-click="addCustomer()">Add Customer</button>
-    <br/>
-    <a href="/admin">Admin</a>
-    <br/>-->
-    <ul>
+    <!--<ul>
         <li data-ng-repeat="session in sessions">{{ session.brand }} - {{ session.title }}</li>
+    </ul>-->
+
+
+    <ul class="media-list">
+        <li class="media" data-ng-repeat="session in sessions">
+            <!--<a class="pull-left" href="#">
+                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 64px; height: 64px;">
+            </a>-->
+            <h4 class="pull-left"><span class="label label-default">{{ session.day }}, {{ session.time }}</span></h4>
+
+            <div class="media-body">
+                <h4 style="color:#3276b1" class="media-heading"><strong>{{ session.brand }}</strong></h4>
+                <p>{{ session.room }}</p>
+                <p><strong>{{ session.title }}</strong></p>
+            </div>
+            <hr />
+        </li>
+
+
+        <!--<li class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 64px; height: 64px;">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">Media heading</h4>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+            </div>
+        </li>-->
+
     </ul>
+
+
 </div>
