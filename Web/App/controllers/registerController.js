@@ -51,14 +51,20 @@
                     authService.login(userCredentials)
                         .then(function (data) {
                             $window.localStorage.token = data.access_token;
+                            $window.localStorage.userName = data.userName;
+
                             $rootScope.currentToken = $window.localStorage.token;
+                            $rootScope.userName = $window.localStorage.userName;
 
                             $scope.message = JSON.stringify(data, null, 4);
                             $location.path('/');
                         })
                         .catch(function (err) {
                             delete $window.localStorage.token;
+                            delete $window.localStorage.userName;
+
                             $rootScope.currentToken = null;
+                            $rootScope.userName = null;
 
                             $scope.message = JSON.stringify(err.data, null, 4);
                         });

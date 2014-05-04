@@ -2,6 +2,7 @@
 
     // Get currentToken from localStorage
     $rootScope.currentToken = $window.localStorage.token || null;
+    $rootScope.userName = $window.localStorage.userName || null
 
     $scope.menu = [{
         'title': 'Home',
@@ -20,7 +21,11 @@
         //});
 
         delete $window.localStorage.token;
+        delete $window.localStorage.userName;
+
         $rootScope.currentToken = null;
+        $rootScope.userName = null;
+
         $location.path('/Account/Login');
     };
 
