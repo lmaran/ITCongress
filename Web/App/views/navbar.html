@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">ITCongress</a>
+        <a href="http://itcongress.ro/" class="navbar-brand">ITCongress</a>
     </div>
     <div collapse="navCollapsed" class="navbar-collapse collapse">
 
@@ -16,13 +16,13 @@
                 <a ng-href=" {{item.link}}">{{'Menu.' + item.title | translate}}</a>
             </li>
 
-            <!--<li class="dropdown">
+            <li ng-if="$root.isAdmin" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown">{{'Navbar.Admin'|translate}} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a ng-href="/Admin/Users">{{'Navbar.Admin.Users'|translate}}</a></li>
                     <li><a ng-href="/Admin/WhiteList">{{'Navbar.Admin.WhiteList'|translate}}</a></li>
                 </ul>
-            </li>-->
+            </li>
 
         </ul>
 

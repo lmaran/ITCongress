@@ -7,6 +7,7 @@ using Web.ViewModels;
 
 namespace Web.Controllers
 {
+    
     public class WhiteListController : ApiController
     {
 
@@ -17,6 +18,7 @@ namespace Web.Controllers
             this._whiteListRepository = whiteListRepository;
         }
 
+        [Authorize(Roles = "Admin")]
         [Route("api/{eventId}/whitelist")]
         public IEnumerable<string> GetAll(string eventId)
         {
@@ -30,6 +32,8 @@ namespace Web.Controllers
             return _whiteListRepository.Get(eventId, email);
         }
 
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("api/{eventId}/whitelist/{email}")]
         public void Post(string eventId, string email)

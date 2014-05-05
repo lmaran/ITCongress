@@ -11,9 +11,10 @@ using Web.Models;
 
 namespace Web.Controllers
 {
+    [Authorize]
     public class UserController : ApiController
     {
-        // GET: api/User
+        [Authorize(Roles = "Admin")]
         [Route("api/users")]
         public IEnumerable<object> Get()
         {
@@ -32,16 +33,6 @@ namespace Web.Controllers
             });
         }
 
-        // GET: api/User/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/User
-        public void Post([FromBody]string value)
-        {
-        }
 
         [HttpPut]
         [Route("api/users/{userId}/{newStatus}")] // api/users/694f9650-0005-4941-922c-0eff2aed355f/Rejected
@@ -65,9 +56,6 @@ namespace Web.Controllers
 
         }
 
-        // DELETE: api/User/5
-        public void Delete(int id)
-        {
-        }
+
     }
 }

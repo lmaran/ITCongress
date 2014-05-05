@@ -11,24 +11,32 @@
             .then(function (data) {
                 $window.localStorage.token = data.access_token;
                 $window.localStorage.userName = data.userName;
+                $window.localStorage.isAdmin = (data.isAdmin === "true");
+                $window.localStorage.status = data.status;
 
                 $rootScope.currentToken = $window.localStorage.token;
                 $rootScope.userName = $window.localStorage.userName;
+                $rootScope.isAdmin = $window.localStorage.isAdmin;
+                $rootScope.status = $window.localStorage.status;
 
                 //$scope.message = JSON.stringify(data, null, 4);
+                //alert(JSON.stringify(data, null, 4));
                 $location.path('/');
-
-                // get user details
 
             })
             .catch(function (err) {
                 delete $window.localStorage.token;
                 delete $window.localStorage.userName;
+                delete $window.localStorage.isAdmin;
+                delete $window.localStorage.status;
 
                 $rootScope.currentToken = null;
                 $rootScope.userName = null;
+                $rootScope.isAdmin = null;
+                $rootScope.status = null;
 
-                $scope.message = JSON.stringify(err.data, null, 4);
+                //alert(JSON.stringify(err.data, null, 4));
+                //$scope.message = JSON.stringify(err.data, null, 4);
             });
 
     };

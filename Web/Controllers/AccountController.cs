@@ -270,7 +270,14 @@ namespace Web.Controllers
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                // ************
+                var isAdmin = "false";
+                var roleClaims = oAuthIdentity.FindAll(ClaimTypes.Role);
+                foreach(var claim in roleClaims)
+                    if (claim.Value =="Admin") { isAdmin = "true"; }
+                // ************
+
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, user.Status, isAdmin);
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else
@@ -334,6 +341,31 @@ namespace Web.Controllers
                 return BadRequest(ModelState);
             }
 
+
+
+            //// *****************
+            //// http://stackoverflow.com/a/23273257
+            //// http://forums.asp.net/t/1982430.aspx?ASP+NET+Identity+2+0+How+to+add+a+User+to+a+Role+
+
+            //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>());
+            //string roleName = "Admin";
+
+            ////Create Role Admin if it does not exist
+            //if (!roleManager.RoleExists(roleName))
+            //{
+            //    var roleresult = roleManager.Create(new IdentityRole(roleName));
+            //}
+
+            //roleManager.Create(new IdentityRole(roleName));
+            //UserManager.AddToRole(user.Id, "This Is A Test");
+
+
+            //// *****************
+
+
+
+
+
             // *****************
             var status = "ApprovedByDefault";
 
@@ -349,6 +381,12 @@ namespace Web.Controllers
             FirstName = model.FirstName, LastName = model.LastName, Title = model.Title, Company = model.Company, Status = status};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
+
+
+
+
+
 
             if (!result.Succeeded)
             {

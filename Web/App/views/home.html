@@ -31,8 +31,8 @@
                 <h4 style="color:#3276b1" class="media-heading"><strong>{{ session.brand }}</strong></h4>
                 <p>{{ session.room }}</p>
                 <p><strong>{{ session.title }}</strong></p>
-                <p><button ng-click="addToSchedule(session.sessionId, session.day, session.time)" ng-if="session.room!='' && (session.currentAttendees < session.maxAttendees) && (currentToken==null || (currentToken && !session.isRegistered))" class="btn btn-xs btn-primary">Add to My Schedule</button></p>
-                <p><button button ng-click="removeFromSchedule(session.sessionId)" ng-if="currentToken && session.isRegistered" class="btn btn-xs btn-success">Remove from My Schedule</button></p>
+                <p><button ng-click="addToSchedule(session.sessionId, session.day, session.time)" ng-if="$root.status.substr(0,8) == 'Approved' && session.room!='' && (session.currentAttendees < session.maxAttendees) && (currentToken==null || (currentToken && !session.isRegistered))" class="btn btn-xs btn-primary">Add to My Schedule</button></p>
+                <p><button button ng-click="removeFromSchedule(session.sessionId)" ng-if="$root.status.substr(0,8) == 'Approved' && currentToken && session.isRegistered" class="btn btn-xs btn-success">Remove from My Schedule</button></p>
             </div>
             <hr />
         </li>
