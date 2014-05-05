@@ -157,6 +157,7 @@
     <Content Include="App\controllers\userController.js" />
     <Content Include="App\controllers\whiteListController.js" />
     <Content Include="App\directives\ngMatch.js" />
+    <Content Include="App\services\authInterceptor.js" />
     <Content Include="App\services\confirmService.js" />
     <Content Include="App\services\whiteListService.js" />
     <Content Include="App\views\confirm.html" />
@@ -479,6 +480,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AttendeesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WhiteListController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
@@ -503,6 +505,7 @@
     <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Repositories\AttendeeRepository.cs" />
     <Compile Include="Repositories\WhiteListRepository.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
     <Compile Include="Repositories\SessionRepository.cs" />

@@ -68,6 +68,24 @@ namespace Web.Repositories
             var operation = TableOperation.Merge(f);
             Table.Execute(operation);
         }
+
+        public void IncrementCurrentAttendees(string pk, string rk)
+        {
+            var entity = this.Retrieve(pk, rk);
+            entity.CurrentAttendees = ++entity.CurrentAttendees;
+
+            var operation = TableOperation.Merge(entity);
+            Table.Execute(operation);
+        }
+
+        public void DecrementCurrentAttendees(string pk, string rk)
+        {
+            var entity = this.Retrieve(pk, rk);
+            entity.CurrentAttendees = --entity.CurrentAttendees;
+
+            var operation = TableOperation.Merge(entity);
+            Table.Execute(operation);
+        }
     }
 
 
@@ -76,5 +94,7 @@ namespace Web.Repositories
         IEnumerable<SessionViewModel> GetByPk(String eventId);
         SessionViewModel GetByKeys(String pk, String rk);
         void UpdateProperty(string pk, string rk, string propertyName, string propertyValue);
+        void IncrementCurrentAttendees(string pk, string rk);
+        void DecrementCurrentAttendees(string pk, string rk);
     }
 }

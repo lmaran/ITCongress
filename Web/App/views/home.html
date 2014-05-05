@@ -11,7 +11,7 @@
     <h2>Agenda ITCongress 2014</h2>
 
     <div class="row">
-        <div class="col-lg-3 pull-right">
+        <div class="col-md-3 pull-right">
             <div class="input-group">
                 <input ng-model="search" name="newEmail" type="text" class="form-control" placeholder="Search">
                 <span class="input-group-btn"><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button></span>
@@ -31,6 +31,8 @@
                 <h4 style="color:#3276b1" class="media-heading"><strong>{{ session.brand }}</strong></h4>
                 <p>{{ session.room }}</p>
                 <p><strong>{{ session.title }}</strong></p>
+                <p><button ng-click="addToSchedule(session.sessionId, session.day, session.time)" ng-if="session.room!='' && (session.currentAttendees < session.maxAttendees) && (currentToken==null || (currentToken && !session.isRegistered))" class="btn btn-xs btn-primary">Add to My Schedule</button></p>
+                <p><button button ng-click="removeFromSchedule(session.sessionId)" ng-if="currentToken && session.isRegistered" class="btn btn-xs btn-success">Remove from My Schedule</button></p>
             </div>
             <hr />
         </li>

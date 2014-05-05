@@ -27,7 +27,6 @@ namespace Web.Models
         public string Brand { get; set; }
         public string Title { get; set; }
         public string Speakers { get; set; } // serializat Json...Azure nu permite tipul List<T>; speakeri
-        public Int32 MaxAttendees { get; set; }
         public Int32 CurrentAttendees { get; set; }
         public Int32 Duration { get; set; } // in session length, in minutes
 

@@ -12,6 +12,5 @@
         return $http.put('/api/users/' + userId + '/' + newStatus);
     };
 
-
     return factory;
 });
