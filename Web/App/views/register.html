@@ -37,6 +37,7 @@
                 <span ng-show="notApproved" style="color:orange" class="glyphicon glyphicon-warning-sign form-control-feedback" popover="Deoarece aceasta adresa de email nu exista in baza noastra de date va rugam sa asteptati ca inregistrarea sa fie activata de catre echipa IT Congress 2014. Un email de confirmare a activarii contului va fi trimis pe aceasta adresa in urmatoarele 24 de ore." popover-trigger="mouseenter" popover-placement="right"></span>               
 
                 <p ng-show="userForm.email.$invalid  && submitted" class="help-block">Enter a valid email.</p>
+                <p ng-if="notApproved" style="color:orange" class="help-block">Deoarece aceasta adresa de email nu exista in baza noastra de date va rugam sa asteptati ca inregistrarea sa fie activata de catre echipa IT Congress 2014. Un email de confirmare a activarii contului va fi trimis pe aceasta adresa in urmatoarele 24 de ore.</p>
 
             </div>
         </div>

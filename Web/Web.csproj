@@ -153,13 +153,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\controllers\alertController.js" />
     <Content Include="App\controllers\confirmController.js" />
     <Content Include="App\controllers\userController.js" />
     <Content Include="App\controllers\whiteListController.js" />
     <Content Include="App\directives\ngMatch.js" />
     <Content Include="App\services\authInterceptor.js" />
-    <Content Include="App\services\confirmService.js" />
+    <Content Include="App\services\dialogService.js" />
     <Content Include="App\services\whiteListService.js" />
+    <Content Include="App\views\alert.html" />
     <Content Include="App\views\confirm.html" />
     <Content Include="App\views\users.html" />
     <Content Include="App\views\whiteList.html" />
@@ -457,7 +459,6 @@
     <Content Include="App\controllers\navbarController.js" />
     <Content Include="App\controllers\registerController.js" />
     <Content Include="App\index.html" />
-    <Content Include="App\index2.html" />
     <Content Include="App\services\authService.js" />
     <Content Include="App\services\sessionService.js" />
     <Content Include="App\services\userService.js" />

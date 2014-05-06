@@ -1,4 +1,4 @@
-﻿app.controller('whiteListController', function ($scope, whiteListService, confirmService) {
+﻿app.controller('whiteListController', function ($scope, whiteListService, dialogService) {
     $scope.whiteList = [];
     $scope.errors = {};
 
@@ -6,7 +6,7 @@
 
     $scope.delete = function (email) {
         eventId = "itcongress2014";
-        confirmService.confirmation('Click ok to delete ' + email + ', otherwise click cancel.', 'Delete Email')
+        dialogService.confirm('Click ok to delete ' + email + ', otherwise click cancel.', 'Delete Email')
             .then(function () {
 
                 // get the index for selected item
