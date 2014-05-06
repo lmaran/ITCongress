@@ -27,7 +27,7 @@ namespace Web.Repositories
 
         public int Get(string eventId, string email)
         {
-            var entry = this.Retrieve(eventId, email);
+            var entry = this.Retrieve(eventId, email.ToLower());
 
             if (entry == null)
                 //throw new HttpResponseException(HttpStatusCode.NotFound);
@@ -40,7 +40,7 @@ namespace Web.Repositories
         {
             var item = new WhiteListEntry();
             item.PartitionKey = eventId;
-            item.RowKey = email;
+            item.RowKey = email.ToLower();
             this.Insert(item);
 
         }
@@ -49,7 +49,7 @@ namespace Web.Repositories
         {
             var item = new WhiteListEntry();
             item.PartitionKey = eventId;
-            item.RowKey = email;
+            item.RowKey = email.ToLower();
             this.Delete(item);
 
         }

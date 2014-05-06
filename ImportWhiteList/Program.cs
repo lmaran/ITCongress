@@ -40,7 +40,7 @@ namespace ImportWhiteList
                 {
                     var entity = new DynamicTableEntity();
                     entity.PartitionKey = "itcongress2014";
-                    entity.RowKey = line;
+                    entity.RowKey = line.ToLower();
                     list.Add(entity);
                     counter++;
                 }
