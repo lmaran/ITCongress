@@ -16,6 +16,7 @@ namespace Web.Models
         public string Title { get; set; }
         public string Company { get; set; }
         public string Status { get; set; }
+        public long Id2 { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {

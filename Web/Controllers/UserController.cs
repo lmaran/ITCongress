@@ -22,6 +22,7 @@ namespace Web.Controllers
             return context.Users.Select(x => new
             {
                 Id = x.Id,
+                Id2 = x.Id2,
                 LastName = x.LastName,
                 FirstName = x.FirstName,
                 PhoneNumber = x.PhoneNumber, 

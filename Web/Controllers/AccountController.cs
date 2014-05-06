@@ -375,10 +375,13 @@ namespace Web.Controllers
             {
                 status = "WaitingForApproval";
             }
+
+            var repo = new UserRepository();
+            long id2 = repo.getMaxId() + 1;
             // *****************
 
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, Hometown = model.Hometown, PhoneNumber = model.PhoneNumber,
-            FirstName = model.FirstName, LastName = model.LastName, Title = model.Title, Company = model.Company, Status = status};
+            FirstName = model.FirstName, LastName = model.LastName, Title = model.Title, Company = model.Company, Status = status, Id2=id2};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

@@ -495,6 +495,10 @@
     <Compile Include="Migrations\201404290657040_AddStatus.Designer.cs">
       <DependentUpon>201404290657040_AddStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405061846554_Id2.cs" />
+    <Compile Include="Migrations\201405061846554_Id2.Designer.cs">
+      <DependentUpon>201405061846554_Id2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -506,6 +510,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Repositories\AttendeeRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\WhiteListRepository.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
     <Compile Include="Repositories\SessionRepository.cs" />
@@ -525,6 +530,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201404290657040_AddStatus.resx">
       <DependentUpon>201404290657040_AddStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405061846554_Id2.resx">
+      <DependentUpon>201405061846554_Id2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
