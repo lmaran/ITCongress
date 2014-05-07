@@ -66,6 +66,7 @@
                     day: getDay(session.sessionId),
                     time: getTime(session.sessionId, session.duration),
                     room: getRoom(session.sessionId),
+                    roomName: getRoomName(session.sessionId),
                     maxAttendees: getMaxAttendees(session.sessionId),
                     currentAttendees: session.currentAttendees || 0,
                     isRegistered: false
@@ -118,10 +119,11 @@
         return startTime + " - " + stopTime;
     };
 
-    function getRoom(rowKey) {
-        tmpArray = rowKey.split('-');
-        if (tmpArray.length < 3) return ""; //no room
-        switch (tmpArray[2]) {
+    function getRoomName(rowKey) {
+        switch (getRoom(rowKey)) {
+            case "":
+                return ""; //no room
+                break;
             case "room1":
                 return "Presentation Room 1";
                 break;
@@ -137,6 +139,12 @@
             default:
                 return "RoomError"
         }
+    };
+
+    function getRoom(rowKey) {
+        tmpArray = rowKey.split('-');
+        if (tmpArray.length < 3) return ""; //no room
+        return tmpArray[2];
     };
 
     function getMaxAttendees(rowKey) {

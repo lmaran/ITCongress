@@ -17,37 +17,29 @@
                 <span class="input-group-btn"><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button></span>
             </div>
         </div>
+        <div class="col-md-3 pull-right">
+            Display only My Schedule: <input type="checkbox" ng-model="mySchedule" ng-true-value="true" ng-false-value="">
+        </div>
     </div>
 
 
     <ul class="media-list">
-        <li class="media" data-ng-repeat="session in sessions | filter:search">
-            <!--<a class="pull-left" href="#">
-            <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 64px; height: 64px;">
-        </a>-->
-            <h4 class="pull-left"><span class="label label-default">{{ session.day }}, {{ session.time }}</span></h4>
-
-            <div class="media-body">
-                <h4 style="color:#3276b1" class="media-heading"><strong>{{ session.brand }}</strong></h4>
-                <p>{{ session.room }}</p>
-                <p><strong>{{ session.title }}</strong></p>
-                <p><button ng-click="addToSchedule(session.sessionId, session.day, session.time)" ng-if="$root.status.substr(0,8) == 'Approved' && session.room!='' && (session.currentAttendees < session.maxAttendees) && (currentToken==null || (currentToken && !session.isRegistered))" class="btn btn-xs btn-primary">Add to My Schedule</button></p>
-                <p><button button ng-click="removeFromSchedule(session.sessionId)" ng-if="$root.status.substr(0,8) == 'Approved' && currentToken && session.isRegistered" class="btn btn-xs btn-success">Remove from My Schedule</button></p>
+        <li data-ng-repeat="session in sessions | filter:search | filter:{isRegistered:mySchedule}">
+            <div class="row">
+                <div class="col-lg-2">
+                    <h4 ng-if="session.room == '' || session.room == 'room1' || mySchedule=='true'"><span class="label label-default">{{ session.day }}, {{ session.time }}</span></h4>
+                </div>
+                <div class="col-lg-10">
+                    <h4 style="color:#3276b1"><strong>{{ session.brand }}</strong></h4>
+                    <p>{{ session.roomName }}</p>
+                    <p><strong>{{ session.title }}</strong></p>
+                    <p><button ng-click="addToSchedule(session.sessionId, session.day, session.time)" ng-if="$root.status.substr(0,8) == 'Approved' && session.room!='' && (session.currentAttendees < session.maxAttendees) && (currentToken==null || (currentToken && !session.isRegistered))" class="btn btn-xs btn-primary">Add to My Schedule</button></p>
+                    <p><button button ng-click="removeFromSchedule(session.sessionId)" ng-if="$root.status.substr(0,8) == 'Approved' && currentToken && session.isRegistered" class="btn btn-xs btn-success">Remove from My Schedule</button></p>
+                    <hr ng-if="(session.room != '' && session.room != 'room4') || mySchedule=='true'" />
+                </div>
             </div>
-            <hr />
+            <hr ng-if="(session.room == '' || session.room == 'room4') && mySchedule!='true'" style="border-color:gray" />
         </li>
-
-
-        <!--<li class="media">
-            <a class="pull-left" href="#">
-                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 64px; height: 64px;">
-            </a>
-            <div class="media-body">
-                <h4 class="media-heading">Media heading</h4>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-            </div>
-        </li>-->
-
     </ul>
 
 
