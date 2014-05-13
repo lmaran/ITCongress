@@ -1,7 +1,8 @@
 ﻿{
     "Menu":
     {
-        "Home": "Home"
+        "Home": "Home",
+        "Speakers": "Speakers"
     },
  
     "Navbar":

@@ -11,6 +11,10 @@
         });
     };
 
+    $scope.gotoSpeaker = function (speakerId) {
+
+    };
+
     $scope.addToSchedule = function (sessionId, day, time) {
         eventId = "itcongress2014";
         if ($rootScope.userName == null) {
@@ -69,7 +73,8 @@
                     roomName: getRoomName(session.sessionId),
                     maxAttendees: getMaxAttendees(session.sessionId),
                     currentAttendees: session.currentAttendees || 0,
-                    isRegistered: false
+                    isRegistered: false,
+                    speakers: session.speakers
                 });
             })
 

@@ -48,13 +48,14 @@ namespace Web.Providers
                 CookieAuthenticationDefaults.AuthenticationType);
 
             // ************
-            var isAdmin = "false";
+            var role = "";
             var roleClaims = oAuthIdentity.Claims.Where(x=>x.Type==ClaimTypes.Role);
-            if (roleClaims.Select(x => x.Value).Contains("Admin")) { isAdmin = "true"; }
+            if (roleClaims.Select(x => x.Value).Contains("Admin")) { role = "Admin"; }
+            else if (roleClaims.Select(x => x.Value).Contains("PM")) { role = "PM"; }
             // ************
 
 
-            AuthenticationProperties properties = CreateProperties(user.UserName, user.Status, isAdmin);
+            AuthenticationProperties properties = CreateProperties(user.UserName, user.Status, role);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -96,13 +97,13 @@ namespace Web.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName, string status, string isActive)
+        public static AuthenticationProperties CreateProperties(string userName, string status, string role)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
                 { "userName", userName },
                 { "status", status },
-                { "isAdmin", isActive }
+                { "role", role }
             };
             return new AuthenticationProperties(data);
         }

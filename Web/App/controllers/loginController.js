@@ -11,12 +11,12 @@
             .then(function (data) {
                 $window.localStorage.token = data.access_token;
                 $window.localStorage.userName = data.userName;
-                $window.localStorage.isAdmin = (data.isAdmin === "true");
+                $window.localStorage.role = data.role;
                 $window.localStorage.status = data.status;
 
                 $rootScope.currentToken = $window.localStorage.token;
                 $rootScope.userName = $window.localStorage.userName;
-                $rootScope.isAdmin = $window.localStorage.isAdmin;
+                $rootScope.role = $window.localStorage.role;
                 $rootScope.status = $window.localStorage.status;
 
                 //$scope.message = JSON.stringify(data, null, 4);
@@ -32,7 +32,7 @@
 
                 $rootScope.currentToken = null;
                 $rootScope.userName = null;
-                $rootScope.isAdmin = null;
+                $rootScope.role = null;
                 $rootScope.status = null;
 
                 //alert(JSON.stringify(err.data, null, 4));

@@ -11,10 +11,10 @@ using Web.Models;
 
 namespace Web.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class UserController : ApiController
     {
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [Route("api/users")]
         public IEnumerable<object> Get()
         {

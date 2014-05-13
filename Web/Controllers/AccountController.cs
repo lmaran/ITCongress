@@ -271,13 +271,16 @@ namespace Web.Controllers
                     CookieAuthenticationDefaults.AuthenticationType);
 
                 // ************
-                var isAdmin = "false";
+                var role = "";
                 var roleClaims = oAuthIdentity.FindAll(ClaimTypes.Role);
-                foreach(var claim in roleClaims)
-                    if (claim.Value =="Admin") { isAdmin = "true"; }
+                foreach (var claim in roleClaims)
+                {
+                    if (claim.Value == "Admin") { role = "Admin"; }
+                    else if (claim.Value == "PM") { role = "PM"; }
+                }
                 // ************
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, user.Status, isAdmin);
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, user.Status, role);
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else

@@ -1,7 +1,8 @@
 ﻿{
     "Menu":
     {
-        "Home": "Acasa"
+        "Home": "Acasa",
+        "Speakers" : "Prezentatori"
     },
  
     "Navbar":

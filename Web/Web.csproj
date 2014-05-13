@@ -155,14 +155,17 @@
   <ItemGroup>
     <Content Include="App\controllers\alertController.js" />
     <Content Include="App\controllers\confirmController.js" />
+    <Content Include="App\controllers\speakerController.js" />
     <Content Include="App\controllers\userController.js" />
     <Content Include="App\controllers\whiteListController.js" />
     <Content Include="App\directives\ngMatch.js" />
     <Content Include="App\services\authInterceptor.js" />
     <Content Include="App\services\dialogService.js" />
+    <Content Include="App\services\speakerService.js" />
     <Content Include="App\services\whiteListService.js" />
     <Content Include="App\views\alert.html" />
     <Content Include="App\views\confirm.html" />
+    <Content Include="App\views\speakers.html" />
     <Content Include="App\views\users.html" />
     <Content Include="App\views\whiteList.html" />
     <Content Include="packages.config" />
@@ -482,6 +485,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AttendeesController.cs" />
+    <Compile Include="Controllers\SpeakerController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WhiteListController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
@@ -503,6 +507,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\SpeakerEntry.cs" />
     <Compile Include="Models\WhiteListEntry.cs" />
     <Compile Include="Models\EventEntry.cs" />
     <Compile Include="Models\SessionEntry.cs" />
@@ -511,6 +516,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Repositories\AttendeeRepository.cs" />
+    <Compile Include="Repositories\SpeakerRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\WhiteListRepository.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
@@ -521,6 +527,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AgendaViewModel.cs" />
     <Compile Include="ViewModels\EventViewModel.cs" />
+    <Compile Include="ViewModels\SpeakerViewModel.cs" />
     <Compile Include="ViewModels\SessionViewModel.cs" />
     <Compile Include="ViewModels\UserAgendaViewModel.cs" />
   </ItemGroup>

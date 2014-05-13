@@ -3,17 +3,17 @@
     // Get currentToken from localStorage
     $rootScope.currentToken = $window.localStorage.token || null;
     $rootScope.userName = $window.localStorage.userName || null;
-    $rootScope.isAdmin = $window.localStorage.isAdmin || null;
+    $rootScope.role = $window.localStorage.role || null;
     $rootScope.status = $window.localStorage.status || null;
     
     $scope.menu = [{
         'title': 'Home',
         'link': '/'
     }
-        //, {
-        //    'title': 'Admin',
-        //    'link': '/Admin'
-        //}
+    ,{
+        'title': 'Speakers',
+        'link': '/Speakers'
+    }
     ];
 
     $scope.logout = function () {
@@ -24,12 +24,12 @@
 
         delete $window.localStorage.token;
         delete $window.localStorage.userName;
-        delete $window.localStorage.isAdmin;
+        delete $window.localStorage.role;
         delete $window.localStorage.status;
 
         $rootScope.currentToken = null;
         $rootScope.userName = null;
-        $rootScope.isAdmin = null;
+        $rootScope.role = null;
         $rootScope.status = null;
 
         $location.path('/Account/Login');

@@ -30,7 +30,7 @@ namespace Web.Repositories
             Mapper.CreateMap<SessionEntry, SessionViewModel>()
                 .ForMember(dest => dest.EventId, opt => opt.MapFrom(src => src.PartitionKey))
                 .ForMember(dest => dest.SessionId, opt => opt.MapFrom(src => src.RowKey))
-                .ForMember(dest => dest.Speakers, opt => opt.MapFrom(src => JsonConvert.DeserializeObject<List<Speaker>>(src.Speakers ?? string.Empty)));
+                .ForMember(dest => dest.Speakers, opt => opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.Speakers ?? string.Empty)));
 
             var entitiesVM = Mapper.Map<List<SessionEntry>, List<SessionViewModel>>(entitiesTable.ToList()); //neaparat cu ToList()
 
@@ -48,7 +48,7 @@ namespace Web.Repositories
             Mapper.CreateMap<SessionEntry, SessionViewModel>()
                 .ForMember(dest => dest.EventId, opt => opt.MapFrom(src => src.PartitionKey))
                 .ForMember(dest => dest.SessionId, opt => opt.MapFrom(src => src.RowKey))
-                .ForMember(dest => dest.Speakers, opt => opt.MapFrom(src => JsonConvert.DeserializeObject<List<Speaker>>(src.Speakers ?? string.Empty)));
+                .ForMember(dest => dest.Speakers, opt => opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.Speakers ?? string.Empty)));
 
             var entityVM = Mapper.Map<SessionEntry, SessionViewModel>(i);
 
