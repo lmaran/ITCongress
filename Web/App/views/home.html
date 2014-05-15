@@ -25,10 +25,8 @@
                     <p>
                         {{ session.roomName }}
                         <strong ng-if="session.room!=''">|</strong>
-
-
                         <span ng-repeat="speaker in session.speakers">
-                            <a ng-href="/Speakers/{{speaker}}">{{speaker}}</a>
+                            <a ng-href="/Speakers/{{speaker}}">{{speaker}}</a><span ng-show="!$last">,</span>
                         </span>
 
                     </p>
