@@ -95,7 +95,17 @@
                 })
                 .catch(function (err) {
                     //$scope.message = JSON.stringify(err.data, null, 4);
-                    alert(JSON.stringify(err.data, null, 4));
+                    //alert(JSON.stringify(err.data, null, 4));
+
+                    //alert(JSON.stringify(err.data.modelState[""], null, 4));
+
+                    var msg = "<ul>";
+                    var errorDetails = err.data.modelState[""];
+                    for (var key in errorDetails) {
+                        msg += "<li>" + errorDetails[key] + "<br></li>";                      
+                    };
+                    msg += "</ul>"
+                    dialogService.alert(msg, err.data.message);
                 });
 
         }

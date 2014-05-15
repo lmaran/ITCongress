@@ -1,4 +1,4 @@
-﻿app.controller('loginController', function ($scope, $rootScope, $http, $window, $location, authService) {
+﻿app.controller('loginController', function ($scope, $rootScope, $http, $window, $location, authService, dialogService) {
     //$scope.user = { userName: 'test2@outlook.com', password: 'Aa1111'};
     $scope.user = {};
     //$scope.errors = {};
@@ -36,7 +36,7 @@
                 $rootScope.status = null;
 
                 //alert(JSON.stringify(err.data, null, 4));
-                //$scope.message = JSON.stringify(err.data, null, 4);
+                dialogService.alert(err.data.error_description, "Authentication Error");
             });
 
     };

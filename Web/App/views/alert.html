@@ -2,7 +2,7 @@
     <h3>{{ data.title }}</h3>
 </div>
 <div class="modal-body">
-    {{ data.message }}
+    <div ng-bind-html="data.message"></div>
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" ng-click="ok()">OK</button>
