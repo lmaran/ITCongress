@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using Web.Models;
 
 namespace Web.ViewModels
 {
@@ -13,7 +14,7 @@ namespace Web.ViewModels
 
         public string Brand { get; set; }
         public string Title { get; set; }
-        public List<string> Speakers { get; set; }
+        public List<RelatedSpeaker> Speakers { get; set; }
         public Int32 MaxAttendees { get; set; }
         public Int32 CurrentAttendees { get; set; }
         public Int32 Duration { get; set; } // in session length, in minutes

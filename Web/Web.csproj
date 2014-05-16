@@ -485,6 +485,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AttendeesController.cs" />
+    <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\SpeakerController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WhiteListController.cs" />
@@ -507,6 +508,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\RelatedSpeaker.cs" />
     <Compile Include="Models\SpeakerEntry.cs" />
     <Compile Include="Models\WhiteListEntry.cs" />
     <Compile Include="Models\EventEntry.cs" />

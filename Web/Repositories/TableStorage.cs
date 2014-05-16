@@ -35,6 +35,84 @@ namespace Web.Repositories
             return result.Etag;
         }
 
+        public void InsertBatch(IEnumerable<T> objs)
+        {
+            List<List<T>> chunks = GetChunks(objs);
+
+            foreach (var chunk in chunks)
+            {
+                var batchOperation = new TableBatchOperation();
+                foreach (var obj in chunk)
+                {
+                    batchOperation.Insert(obj);
+                }
+                Table.ExecuteBatch(batchOperation);
+            }
+        }
+
+        public void InsertOrMergeBatch(IEnumerable<T> objs)
+        {
+            List<List<T>> chunks = GetChunks(objs);
+
+            foreach (var chunk in chunks)
+            {
+                var batchOperation = new TableBatchOperation();
+                foreach (var obj in chunk)
+                {
+                    batchOperation.InsertOrMerge(obj);
+                }
+                Table.ExecuteBatch(batchOperation);
+            }
+        }
+
+        public void InsertOrReplaceBatch(IEnumerable<T> objs)
+        {
+            List<List<T>> chunks = GetChunks(objs);
+
+            foreach (var chunk in chunks)
+            {
+                var batchOperation = new TableBatchOperation();
+                foreach (var obj in chunk)
+                {
+                    batchOperation.InsertOrReplace(obj);
+                }
+                Table.ExecuteBatch(batchOperation);
+            }
+        }
+
+        public void MergeBatch(IEnumerable<T> objs)
+        {
+            List<List<T>> chunks = GetChunks(objs);
+
+            foreach (var chunk in chunks)
+            {
+                var batchOperation = new TableBatchOperation();
+                foreach (var obj in chunk)
+                {
+                    batchOperation.Merge(obj);
+                }
+                Table.ExecuteBatch(batchOperation);
+            }
+        }
+
+        //Azure Table nu permite > 100 operatii intr-un batch
+        private List<List<T>> GetChunks<T>(IEnumerable<T> objs)
+        {
+            var chunks = new List<List<T>>() { new List<T>() };
+            foreach (var obj in objs)
+            {
+                if (chunks.Last().Count == 100)
+                {
+                    chunks.Add(new List<T>());
+                }
+                chunks.Last().Add(obj);
+            }
+            return chunks;
+        }
+
+
+
+
         public virtual void Delete(T entity)
         {
             entity.ETag = "*"; 

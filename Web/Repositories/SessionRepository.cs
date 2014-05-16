@@ -30,11 +30,22 @@ namespace Web.Repositories
             Mapper.CreateMap<SessionEntry, SessionViewModel>()
                 .ForMember(dest => dest.EventId, opt => opt.MapFrom(src => src.PartitionKey))
                 .ForMember(dest => dest.SessionId, opt => opt.MapFrom(src => src.RowKey))
-                .ForMember(dest => dest.Speakers, opt => opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.Speakers ?? string.Empty)));
+                .ForMember(dest => dest.Speakers, opt => opt.MapFrom(src => JsonConvert.DeserializeObject<List<RelatedSpeaker>>(src.Speakers ?? string.Empty)));
 
             var entitiesVM = Mapper.Map<List<SessionEntry>, List<SessionViewModel>>(entitiesTable.ToList()); //neaparat cu ToList()
 
             return entitiesVM;
+        }
+
+        public IEnumerable<SessionEntry> GetAllEntries(String eventId)
+        {
+            var filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, eventId);
+            return this.ExecuteQuery(filter);
+        }
+
+        public void MergeEntities(IEnumerable<SessionEntry> entities)
+        {
+            this.MergeBatch(entities);
         }
 
         public SessionViewModel GetByKeys(String pk, String rk) //pk=EventId; rk=SessionId
@@ -48,7 +59,7 @@ namespace Web.Repositories
             Mapper.CreateMap<SessionEntry, SessionViewModel>()
                 .ForMember(dest => dest.EventId, opt => opt.MapFrom(src => src.PartitionKey))
                 .ForMember(dest => dest.SessionId, opt => opt.MapFrom(src => src.RowKey))
-                .ForMember(dest => dest.Speakers, opt => opt.MapFrom(src => JsonConvert.DeserializeObject<List<string>>(src.Speakers ?? string.Empty)));
+                .ForMember(dest => dest.Speakers, opt => opt.MapFrom(src => JsonConvert.DeserializeObject<List<RelatedSpeaker>>(src.Speakers ?? string.Empty)));
 
             var entityVM = Mapper.Map<SessionEntry, SessionViewModel>(i);
 
@@ -96,5 +107,8 @@ namespace Web.Repositories
         void UpdateProperty(string pk, string rk, string propertyName, string propertyValue);
         void IncrementCurrentAttendees(string pk, string rk);
         void DecrementCurrentAttendees(string pk, string rk);
+
+        IEnumerable<SessionEntry> GetAllEntries(String eventId);
+        void MergeEntities(IEnumerable<SessionEntry> entities);
     }
 }
