@@ -65,7 +65,7 @@
                 {
                     //eventId: session.eventId,
                     sessionId: session.sessionId,
-                    brand: session.brand,
+                    brand: session.brand || '',
                     title: session.title,
                     day: getDay(session.sessionId),
                     time: getTime(session.sessionId, session.duration),

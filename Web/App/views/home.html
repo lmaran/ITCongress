@@ -21,14 +21,17 @@
                     <h4 ng-if="(session.room == '' || session.room == 'room1') || mySchedule=='true'|| search "><span class="label label-default">{{ session.day }}, {{ session.time }}</span></h4>
                 </div>
                 <div class="col-lg-10">
-                    <h4 style="color:#3276b1"><strong>{{ session.brand }}</strong></h4>
+                    <p ng-if="session.brand!=''">
+                        <img ng-src="http://solution4.blob.core.windows.net/itcongress2014/logo-{{session.brand | lowercase}}.jpg" alt="{{session.brand}}" />
+                    </p>
+
+
                     <p>
                         {{ session.roomName }}
                         <strong ng-if="session.room!=''">|</strong>
                         <span ng-repeat="speaker in session.speakers">
                             <a ng-href="/Speakers/{{speaker.id}}">{{speaker.name}}</a><span ng-show="!$last">,</span>
                         </span>
-
                     </p>
                     <p><strong>{{ session.title }}</strong></p>
                     <p>
