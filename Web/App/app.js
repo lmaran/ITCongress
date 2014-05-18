@@ -32,6 +32,11 @@ app.config(function ($routeProvider, $locationProvider, $translateProvider) {
             templateUrl: 'App/views/whiteList.html',
             title: 'WhiteList'
         })
+        .when('/Admin/ResetPasswords', {
+            controller: 'resetPasswordsController',
+            templateUrl: 'App/views/resetPasswords.html',
+            title: 'WhiteList'
+        })
         .when('/Speakers', {
             controller: 'speakerController',
             templateUrl: 'App/views/speakers.html',

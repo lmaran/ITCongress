@@ -10,6 +10,7 @@
         "Admin":"Admin",
         "Admin.Users":"Registered Users",
         "Admin.WhiteList":"Email \"WhiteList\"",
+        "Admin.ResetPasswords":"Reset Passwords",
 
         "Register": "Register",
         "Login": "Log in",

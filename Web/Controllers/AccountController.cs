@@ -140,6 +140,37 @@ namespace Web.Controllers
             return Ok();
         }
 
+
+        // Custom EndPoint (admin members are allowed to reset passwords for any user)
+        // POST api/Account/ResetPassword
+        //[Authorize(Roles = "Admin")]
+        [HttpPut, Authorize(Roles = "Admin"), Route("ResetPassword")]
+        public async Task<IHttpActionResult> ResetPassword(SetPasswordBindingModelCustom model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            IdentityUser user = await UserManager.FindByEmailAsync(model.Email);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            UserManager.RemovePassword(user.Id);
+
+            IdentityResult result = await UserManager.AddPasswordAsync(user.Id, model.NewPassword);
+
+            if (!result.Succeeded)
+            {
+                return GetErrorResult(result);
+            }
+
+            return Ok();
+        }
+
         // POST api/Account/SetPassword
         [Route("SetPassword")]
         public async Task<IHttpActionResult> SetPassword(SetPasswordBindingModel model)

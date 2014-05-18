@@ -32,9 +32,9 @@
             <label class="col-sm-2 control-label" for="Email">Email</label>
             <div class="col-sm-4">
 
-                <input class="form-control" ng-model="user.email" ng-blur="checkEmail()" type="email" name="email" placeholder="Email"  required />
+                <input class="form-control" ng-model="user.email" ng-blur="checkEmail()" type="email" name="email" placeholder="Email" required />
                 <span ng-show="isApproved" style="color:green" class="glyphicon glyphicon-ok form-control-feedback"></span>
-                <span ng-show="notApproved" style="color:orange" class="glyphicon glyphicon-warning-sign form-control-feedback" popover="Deoarece aceasta adresa de email nu exista in baza noastra de date va rugam sa asteptati ca inregistrarea sa fie activata de catre echipa IT Congress 2014. Un email de confirmare a activarii contului va fi trimis pe aceasta adresa in urmatoarele 24 de ore." popover-trigger="mouseenter" popover-placement="right"></span>               
+                <span ng-show="notApproved" style="color:orange" class="glyphicon glyphicon-warning-sign form-control-feedback" popover="Deoarece aceasta adresa de email nu exista in baza noastra de date va rugam sa asteptati ca inregistrarea sa fie activata de catre echipa IT Congress 2014. Un email de confirmare a activarii contului va fi trimis pe aceasta adresa in urmatoarele 24 de ore." popover-trigger="mouseenter" popover-placement="right"></span>
 
                 <p ng-show="userForm.email.$invalid  && submitted" class="help-block">Enter a valid email.</p>
                 <p ng-if="notApproved" style="color:orange" class="help-block">Deoarece aceasta adresa de email nu exista in baza noastra de date va rugam sa asteptati ca inregistrarea sa fie activata de catre echipa IT Congress 2014. Un email de confirmare a activarii contului va fi trimis pe aceasta adresa in urmatoarele 24 de ore.</p>
@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="form-group" ng-class="{ 'has-error' : userForm.confirmPassword.$invalid && submitted }">
-            <label class="col-sm-2 control-label" for="Password">Password</label>
+            <label class="col-sm-2 control-label" for="ConfirmPassword">Confirm Password</label>
             <div class="col-sm-4">
                 <input class="form-control" ng-model="user.confirmPassword" type="password" name="confirmPassword" placeholder="Confirmare Parola" required ng-minlength="4" match="user.password" />
                 <p ng-show="(userForm.confirmPassword.$error.minlength || userForm.confirmPassword.$error.required) && submitted" class="help-block">Password must be at least 4 characters.</p>
@@ -85,13 +85,5 @@
             </div>
         </div>
 
-        <!--LocalSorage Token:<pre>{{$root.currentToken}}</pre>
-        <pre>{{message}}</pre>-->
-
     </form>
-    
-    <!--<hr />
-    <footer>
-        <p>&copy; 2014 - IT Congress</p>
-    </footer>-->
 </div>

@@ -12,5 +12,9 @@
         return $http.put('/api/users/' + userId + '/' + newStatus);
     };
 
+    factory.resetPassword = function (data) {
+        return $http.put('/api/account/resetPassword', data);
+    };
+
     return factory;
 });
