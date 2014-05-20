@@ -1,4 +1,4 @@
-﻿app.controller('whiteListController', function ($scope, whiteListService, dialogService) {
+﻿app.controller('whiteListController', ['$scope', 'whiteListService', 'dialogService', function ($scope, whiteListService, dialogService) {
     $scope.whiteList = [];
     $scope.errors = {};
 
@@ -45,4 +45,4 @@
             $scope.whiteList = data;
         });
     };
-});
+}]);

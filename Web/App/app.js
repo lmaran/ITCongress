@@ -1,6 +1,6 @@
 ﻿var app = angular.module('itcongressApp', ['ngRoute', 'pascalprecht.translate', 'ngCookies', 'ui.bootstrap', 'ngSanitize']);
 
-app.config(function ($routeProvider, $locationProvider, $translateProvider) {
+app.config(['$routeProvider', '$locationProvider', '$translateProvider', function ($routeProvider, $locationProvider, $translateProvider) {
     $routeProvider
         .when('/',
             {
@@ -65,11 +65,11 @@ app.config(function ($routeProvider, $locationProvider, $translateProvider) {
             suffix: '.json'
         });
 
-});
+}]);
 
-app.config(function ($httpProvider) {
+app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
-});
+}]);
 
 
 

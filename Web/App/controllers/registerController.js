@@ -1,4 +1,4 @@
-﻿app.controller('registerController', function ($scope, $rootScope, $http, $window, $location, authService, whiteListService, dialogService) {
+﻿app.controller('registerController', ['$scope', '$rootScope', '$http', '$window', '$location', 'authService', 'whiteListService', 'dialogService', function ($scope, $rootScope, $http, $window, $location, authService, whiteListService, dialogService) {
     //$scope.user = { email: 'test@outlook.com', password: 'aaaa', confirmPassword: 'aaaa' };
     $scope.user = {};
     //$scope.errors = {};
@@ -114,4 +114,4 @@
         }
     };
 
-});
+}]);

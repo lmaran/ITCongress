@@ -40,7 +40,8 @@ namespace Web.Helpers
             // met.2 http://stackoverflow.com/a/20888749
             response.Content = new StreamContent(File.OpenRead(filePath));
 
-            response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+            //response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+            response.Content.Headers.Add("Content-Type","text/html; charset=utf-8");
             return Task.FromResult(response);
         }
 

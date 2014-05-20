@@ -1,4 +1,4 @@
-﻿app.factory('whiteListService', function ($http) {
+﻿app.factory('whiteListService', ['$http', function ($http) {
 
     var factory = {};
 
@@ -23,4 +23,4 @@
     };
 
     return factory;
-});
+}]);

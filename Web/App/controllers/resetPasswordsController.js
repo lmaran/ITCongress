@@ -1,4 +1,4 @@
-﻿app.controller('resetPasswordsController', function ($scope, $rootScope, $http, $window, $location, userService, whiteListService, dialogService) {
+﻿app.controller('resetPasswordsController', ['$scope', '$rootScope', '$http', '$window', '$location', 'userService', 'whiteListService', 'dialogService', function ($scope, $rootScope, $http, $window, $location, userService, whiteListService, dialogService) {
     //$scope.user = { email: 'test@outlook.com', password: 'aaaa', confirmPassword: 'aaaa' };
     $scope.user = {};
     //$scope.errors = {};
@@ -46,4 +46,4 @@
         }
     };
 
-});
+}]);

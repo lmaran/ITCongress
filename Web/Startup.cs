@@ -61,6 +61,10 @@ namespace Web
             //app.UseGoogleAuthentication();
 
 
+            // Only serve files requested by name.
+            //app.UseStaticFiles("/App/views");
+
+
             //
             // Web API configuration
             //

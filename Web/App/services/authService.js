@@ -1,4 +1,4 @@
-﻿app.factory('authService', function ($http) {
+﻿app.factory('authService', ['$http', function ($http) {
 
     var factory = {};
 
@@ -36,4 +36,4 @@
     };
 
     return factory;
-});
+}]);

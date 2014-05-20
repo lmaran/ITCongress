@@ -1,4 +1,4 @@
-﻿app.controller('navbarController', function ($scope, $location, $translate, $rootScope, $window) {
+﻿app.controller('navbarController', ['$scope', '$location', '$translate', '$rootScope', '$window', function ($scope, $location, $translate, $rootScope, $window) {
 
     // Get currentToken from localStorage
     $rootScope.currentToken = $window.localStorage.token || null;
@@ -44,4 +44,4 @@
         $translate.use(langKey);
     };
 
-});
+}]);

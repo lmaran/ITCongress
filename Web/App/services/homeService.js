@@ -1,4 +1,4 @@
-﻿app.factory('homeService', function ($http) {
+﻿app.factory('homeService', ['$http', function ($http) {
     var customers = [
         { name: 'John Smith', city: 'Phoenix' },
         { name: 'John Doe', city: 'New York' },
@@ -54,5 +54,5 @@
     };
 
     return factory;
-});
+}]);
 

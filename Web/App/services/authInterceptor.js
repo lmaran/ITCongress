@@ -1,5 +1,5 @@
 ﻿// https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/
-app.factory('authInterceptor', function ($rootScope, $q, $window) {
+app.factory('authInterceptor', ['$rootScope', '$q', '$window', function ($rootScope, $q, $window) {
     return {
         request: function (config) {
             config.headers = config.headers || {};
@@ -23,4 +23,4 @@ app.factory('authInterceptor', function ($rootScope, $q, $window) {
             return response || $q.when(response);
         }
     };
-});
+}]);

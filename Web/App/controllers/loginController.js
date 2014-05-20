@@ -1,4 +1,4 @@
-﻿app.controller('loginController', function ($scope, $rootScope, $http, $window, $location, authService, dialogService) {
+﻿app.controller('loginController', ['$scope', '$rootScope', '$http', '$window', '$location', 'authService', 'dialogService', function ($scope, $rootScope, $http, $window, $location, authService, dialogService) {
     //$scope.user = { userName: 'test2@outlook.com', password: 'Aa1111'};
     $scope.user = {};
     //$scope.errors = {};
@@ -41,4 +41,4 @@
 
     };
    
-});
+}]);

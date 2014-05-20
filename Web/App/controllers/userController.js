@@ -1,4 +1,4 @@
-﻿app.controller('userController', function ($scope, userService) {
+﻿app.controller('userController', ['$scope', 'userService', function ($scope, userService) {
     $scope.users = [];
 
     $scope.changeStatus = function (id, newStatus) {
@@ -22,4 +22,4 @@
         });
     };
 
-});
+}]);

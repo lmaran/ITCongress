@@ -1,4 +1,4 @@
-﻿app.controller('speakerController', function ($scope, $location, $rootScope, speakerService, $routeParams) {
+﻿app.controller('speakerController', ['$scope', '$location', '$rootScope', 'speakerService', '$routeParams', function ($scope, $location, $rootScope, speakerService, $routeParams) {
 
     $scope.speakers = [];
     init();
@@ -16,4 +16,4 @@
     };
     
 
-});
+}]);

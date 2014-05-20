@@ -1,4 +1,4 @@
-﻿app.controller('homeController', function ($scope, $location, $rootScope, homeService) {
+﻿app.controller('homeController', ['$scope', '$location', '$rootScope', 'homeService', function ($scope, $location, $rootScope, homeService) {
 
     $scope.sessions = [];
     init();
@@ -193,4 +193,4 @@
         }
         return found;
     };
-});
+}]);

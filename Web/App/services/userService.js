@@ -1,4 +1,4 @@
-﻿app.factory('userService', function ($http) {
+﻿app.factory('userService', ['$http', function ($http) {
 
     var factory = {};
 
@@ -17,4 +17,4 @@
     };
 
     return factory;
-});
+}]);
