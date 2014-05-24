@@ -3,11 +3,10 @@
   <!--The order of the <file> elements determines the order of the file contents when bundled.-->
 
   <!-- Angular Core Modules-->
-  <!--<file>/Scripts/angular-sanitize.js</file>-->
-  <!--<file>/Scripts/angular-cookies.js</file>-->
-  <!--<file>/Scripts/angular-resource.js</file>-->
-  <!--<file>/Scripts/angular-route.js</file>-->
-  <!--<file>/Scripts/angular-animate.js</file>-->
+  <file>/Scripts/custom-version/angular-sanitize.js</file>
+  <file>/Scripts/custom-version/angular-cookies.js</file>
+  <file>/Scripts/custom-version/angular-route.js</file>
+  <!--<file>/Scripts/custom-version/angular-animate.js</file>-->
 
 
   <!-- Angular Plugins -->

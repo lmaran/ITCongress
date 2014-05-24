@@ -18,7 +18,7 @@ namespace Web.Helpers
     public class HtmlActionResult : IHttpActionResult
     {
         private static readonly string _rootPath = HostingEnvironment.MapPath("~/App");
-        private static readonly TimeSpan _cacheTimeSpan = TimeSpan.FromMinutes(1); // The maximum age this resource will be cached on the client side
+        private static readonly TimeSpan _cacheTimeSpan = TimeSpan.FromDays(1); // The maximum age this resource will be cached on the client side
         
         private readonly string _fileName;
         private readonly HttpRequestMessage _request;
@@ -29,72 +29,81 @@ namespace Web.Helpers
             _request = request;
         }
 
-        public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
-        {
-            string filePath = Path.Combine(_rootPath, _fileName);
-            var response = new HttpResponseMessage(HttpStatusCode.OK);
-
-            // met.1 (MSDN): http://msdn.microsoft.com/en-us/library/ezwyzy7b.aspx, (Darrel M.): http://stackoverflow.com/a/8122393
-            //response.Content = new StringContent(File.ReadAllText(filePath));
-
-            // met.2 http://stackoverflow.com/a/20888749
-            response.Content = new StreamContent(File.OpenRead(filePath));
-
-            //response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
-            response.Content.Headers.Add("Content-Type","text/html; charset=utf-8");
-            return Task.FromResult(response);
-        }
-
-        // ok, with cache
+        // ok, without cache
         //public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
         //{
-        //    var filePath = Path.Combine(_rootPath, _fileName);
-        //    var fileInfo = new FileInfo(filePath);
+        //    string filePath = Path.Combine(_rootPath, _fileName);
+        //    var response = new HttpResponseMessage(HttpStatusCode.OK);
 
-        //    var lastModifiedDateTime = fileInfo.LastWriteTimeUtc;
-        //    var entityTag = string.Concat("\"", lastModifiedDateTime.ToBinary().ToString("X"), "\"");
+        //    // met.1 (MSDN): http://msdn.microsoft.com/en-us/library/ezwyzy7b.aspx, (Darrel M.): http://stackoverflow.com/a/8122393
+        //    //response.Content = new StringContent(File.ReadAllText(filePath));
 
-        //    var requestTag = _request.Headers.IfNoneMatch.FirstOrDefault();
+        //    // met.2 http://stackoverflow.com/a/20888749
+        //    response.Content = new StreamContent(File.OpenRead(filePath));
 
-        //    var modifiedContent = requestTag == null || requestTag.Tag != entityTag; // can also check Request.Headers.IfModifiedSince == lastModifiedOffset;
-        //    var suppressContent = _request.Method == HttpMethod.Head; // headers only
-
-        //    var response = _request.CreateResponse(modifiedContent ? HttpStatusCode.OK : HttpStatusCode.NotModified);
-
-        //    if (modifiedContent && !suppressContent)
-        //    {
-        //        // METH 1. Stream content to client
-        //        response.Content = new StreamContent(fileInfo.OpenRead())
-        //        {
-        //            Headers = { ContentLength = fileInfo.Length }
-        //        };
-
-        //        // METH 2.  Send string content to client; (MSDN): http://msdn.microsoft.com/en-us/library/ezwyzy7b.aspx, (Darrel M.): http://stackoverflow.com/a/8122393
-        //        // response.Content = new ByteArrayContent(File.ReadAllBytes(filePath));
-        //    }
-        //    else
-        //    {
-        //        // Empty content (headers only)
-        //        response.Content = new ByteArrayContent(new byte[0]);
-        //    }
-
-        //    if (modifiedContent)
-        //    {
-        //        // Add conditional caching headers
-        //        response.Headers.ETag = new EntityTagHeaderValue(entityTag);
-        //        response.Headers.CacheControl = new CacheControlHeaderValue
-        //        {
-        //            MustRevalidate = true,
-        //            MaxAge = _cacheTimeSpan
-        //        };
-        //    }
-
-        //    // Always send the content headers to client
-        //    response.Content.Headers.LastModified = lastModifiedDateTime;
-        //    response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
-
+        //    //response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+        //    response.Content.Headers.Add("Content-Type","text/html; charset=utf-8");
         //    return Task.FromResult(response);
         //}
 
+        // ok, with cache
+        public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
+        {
+            string filePath = Path.Combine(_rootPath, _fileName);
+            var fileInfo = new FileInfo(filePath);
+
+            DateTime lastModifiedDateTime = fileInfo.LastWriteTimeUtc;
+            string entityTag = string.Concat("\"", lastModifiedDateTime.ToBinary().ToString("X"), "\"");
+
+            EntityTagHeaderValue requestTag = _request.Headers.IfNoneMatch.FirstOrDefault();
+
+            bool modifiedContent = requestTag == null || requestTag.Tag != entityTag; // can also check Request.Headers.IfModifiedSince == lastModifiedOffset;
+            bool suppressContent = _request.Method == HttpMethod.Head; // headers only
+
+            HttpResponseMessage response = _request.CreateResponse(modifiedContent ? HttpStatusCode.OK : HttpStatusCode.NotModified);
+
+            if (modifiedContent && !suppressContent)
+            {
+                // METH 1. Stream content to client
+                response.Content = new StreamContent(fileInfo.OpenRead())
+                {
+                    Headers = { ContentLength = fileInfo.Length }
+                };
+
+                // METH 2.  Send string content to client; (MSDN): http://msdn.microsoft.com/en-us/library/ezwyzy7b.aspx, (Darrel M.): http://stackoverflow.com/a/8122393
+                // response.Content = new ByteArrayContent(File.ReadAllBytes(filePath));
+            }
+            else
+            {
+                // Empty content (headers only)
+                response.Content = new ByteArrayContent(new byte[0]);
+            }
+
+            // Revalidate -> No cache
+            //if (modifiedContent)
+            //{
+            //    // Add conditional caching headers
+            //    response.Headers.ETag = new EntityTagHeaderValue(entityTag);
+            //    response.Headers.CacheControl = new CacheControlHeaderValue
+            //    {
+            //        MustRevalidate = true,
+            //        MaxAge = _cacheTimeSpan
+            //    };
+            //}
+
+            // Add conditional caching headers
+            response.Headers.ETag = new EntityTagHeaderValue(entityTag);
+            response.Headers.CacheControl = new CacheControlHeaderValue
+            {
+                Public = true,
+                MaxAge = _cacheTimeSpan
+            };
+
+            // Always send the content headers to client
+            response.Content.Headers.LastModified = lastModifiedDateTime;
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html") { CharSet = "utf-8" };
+
+            return Task.FromResult(response);
+        }
     }
 }

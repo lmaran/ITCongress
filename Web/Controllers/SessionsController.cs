@@ -28,6 +28,7 @@ namespace Web.Controllers
             this._sessionRepository = sessionRepository;
         }
 
+        //[CacheControl(MaxAge = 400000)]
         [Route("api/{eventId}/sessions")]
         public IEnumerable<SessionViewModel> Get(String eventId) //pk
         {

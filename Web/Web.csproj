@@ -196,6 +196,10 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\custom-version\angular-cookies.js" />
+    <Content Include="Scripts\custom-version\angular-route.js" />
+    <Content Include="Scripts\custom-version\angular-sanitize.js" />
+    <Content Include="Scripts\custom-version\ui-bootstrap-tpls.min.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
     <Content Include="Scripts\i18n\angular-locale_af.js" />
@@ -462,7 +466,9 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
-    <None Include="Scripts\scripts.js.bundle" />
+    <None Include="Scripts\scripts.js.bundle">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Scripts\scripts.min.js.map">
       <DependentUpon>scripts.min.js</DependentUpon>
     </Content>
@@ -494,7 +500,9 @@
     <Content Include="Scripts\angular-translate-storage-local.js" />
     <Content Include="Scripts\angular-translate.js" />
     <Content Include="Scripts\angular-translate.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\DependencyConfig.cs" />
@@ -512,6 +520,7 @@
     <Compile Include="Controllers\RegisteredAttendeesController.cs" />
     <Compile Include="Controllers\UserAgendaController.cs" />
     <Compile Include="Helpers\AzureKeyValidator.cs" />
+    <Compile Include="Helpers\CacheControl.cs" />
     <Compile Include="Helpers\HtmlActionResult.cs" />
     <Compile Include="Helpers\RemainingTime.cs" />
     <Compile Include="Migrations\201404290657040_AddStatus.cs" />

@@ -1,58 +1,30 @@
 ﻿<!DOCTYPE html>
-<html ng-app="itcongressApp">
-<head lang="en">
-    <meta charset="utf-8">
-    <!--<meta http-equiv="content-type" content="text/html; charset=UTF-8">-->
-    <base href="/" /> <!--fara asta nu functioneaza rutele cu >=2 segmente ce ajung pe server-->
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title data-ng-bind="pageTitle">ITCongress</title>
-
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="Content/Site.css">
-
+<html ng-app=itcongressApp>
+<head lang=en>
+    <meta charset=utf-8>
+    <base href="/" />
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <meta name=description content="Agenda ITCongress 2014">
+    <meta name=author content="Lucian Maran">
+    <title data-ng-bind=pageTitle>ITCongress</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel=stylesheet>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel=stylesheet>
+    <link href="Content/Site.css" rel="stylesheet" />
     <link href="Content/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="Content/img/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
-    <link href="Content/img/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    <link href="Content/img/apple-touch-icon-114x114.png" rel=apple-touch-icon sizes=114x114 />
+    <link href="Content/img/apple-touch-icon-144x144.png" rel=apple-touch-icon sizes=144x144 />
 </head>
 <body>
     <!--[if lt IE 9]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <header ng-include="'App/views/navbar.html'" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></header>
-
-    <div class="container">
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <header ng-include="'App/views/navbar.html'" class="navbar navbar-inverse navbar-fixed-top" role=navigation></header>
+    <div class=container>
         <div ng-view=""></div>
     </div>
-
-    <!-- Vendor libs -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular-route.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular-sanitize.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular-cookies.min.js"></script>
-    <!--<script src="Scripts/angular-cookies.min.js"></script>-->
-
-    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
-
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
-
-    <!-- App libs -->
     <script src="Scripts/scripts.min.js"></script>
-
-
 </body>
 </html>
