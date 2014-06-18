@@ -449,7 +449,8 @@
     <Content Include="Content\translates\en.json" />
     <Content Include="Content\translates\ro.json" />
     <Content Include="HiddenConnectionStrings.config" />
-    <None Include="Properties\PublishProfiles\ITCongress - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Azure WebFarmLm1.pubxml" />
+    <None Include="Properties\PublishProfiles\Azure WebSites.pubxml" />
     <Content Include="Scripts\scripts.js">
       <DependentUpon>scripts.js.bundle</DependentUpon>
     </Content>
