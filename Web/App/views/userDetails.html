@@ -1,0 +1,44 @@
+﻿<div>
+    <h2>LandingPage</h2>
+
+    <div class="row">
+        <div class="col-md-3 pull-right">
+            <div class="input-group">
+                <input ng-model="search" name="newEmail" type="text" class="form-control" placeholder="Search">
+                <span class="input-group-btn"><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="table-responsive">
+        <table class="table table-responsive table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Title</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Company</th>
+                    <th>Owner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="item in userDetailsList | filter:search">
+                    <td>{{ item.firstName }}</td>
+                    <td>{{ item.lastName }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.phone }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.company }}</td>
+                    <td>{{ item.owner }}</td>
+                    <!--<td>
+                        <a ng-click="delete(item)">delete</a>
+                    </td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

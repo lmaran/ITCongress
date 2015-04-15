@@ -1,56 +1,62 @@
 ﻿<div>
 
-    <h2>Agenda ITCongress 2014</h2>
+    <h2>Agenda ITCongress 2015</h2>
 
-    <div class="row">
-        <div class="col-md-3 pull-right">
-            <div class="input-group">
-                <input ng-model="search" name="newEmail" type="text" class="form-control" placeholder="Search">
-                <span class="input-group-btn"><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button></span>
+    <div ng-if="sessions.length > 2">
+        <div class="row">
+            <div class="col-md-3 pull-right">
+                <div class="input-group">
+                    <input ng-model="search" name="newEmail" type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn"><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button></span>
+                </div>
+            </div>
+            <div class="col-md-3 pull-right" ng-show="$root.status.substr(0,8) == 'Approved'">
+                Display only My Schedule: <input type="checkbox" ng-model="mySchedule" ng-true-value="true" ng-false-value="">
             </div>
         </div>
-        <div class="col-md-3 pull-right" ng-show="$root.status.substr(0,8) == 'Approved'">
-            Display only My Schedule: <input type="checkbox" ng-model="mySchedule" ng-true-value="true" ng-false-value="">
-        </div>
+
+        <ul class="media-list">
+            <li ng-repeat="session in sessions | filter:search | filter:{isRegistered:mySchedule}">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <!--<h4 ng-if="(session.room == '' || session.room == 'room1') || mySchedule=='true'|| search "><span class="label label-default">{{ session.day }}, {{ session.time }}</span></h4>-->
+                        <h4 ng-if="(session.room == '' || session.room != 'room100') || mySchedule=='true'|| search "><span class="label label-default">{{ session.day }}, {{ session.time }}</span></h4>
+                    </div>
+                    <div class="col-lg-10">
+                        <p ng-if="session.brand!=''">
+                            <img ng-src="http://solution4.blob.core.windows.net/itcongress2015/logo-{{session.brand | lowercase}}.jpg" alt="{{session.brand}}" />
+                        </p>
+
+
+                        <p>
+                            {{ session.roomName }}
+                            <strong ng-if="session.room!=''">|</strong>
+                            <span ng-repeat="speaker in session.speakers">
+                                <a ng-href="/Speakers/{{speaker.id}}">{{speaker.name}}</a><span ng-show="!$last">,</span>
+                            </span>
+                        </p>
+                        <p><strong>{{ session.title }}</strong></p>
+                        <p>
+                            <button ng-click="addToSchedule(session.sessionId, session.day, session.time)" ng-if="$root.status.substr(0,8) == 'Approved' && session.room!='' && (session.currentAttendees < session.maxAttendees) && (currentToken==null || (currentToken && !session.isRegistered))" class="btn btn-xs btn-primary">Add to My Schedule</button>
+                            <button button ng-click="removeFromSchedule(session.sessionId)" ng-if="$root.status.substr(0,8) == 'Approved' && currentToken && session.isRegistered" class="btn btn-xs btn-success">Remove from My Schedule</button>
+                            <span ng-if="session.currentAttendees >= session.maxAttendees && session.room != '' && !session.isRegistered " class="label label-danger">No more places!</span>
+                            <!--<span ng-if="session.currentAttendees >= session.maxAttendees && session.room != '' " class2="label label-danger">No more places!</span>-->
+                        </p>
+
+                        <div ng-if="($root.role=='Admin' || $root.role=='PM') && session.room != ''" tooltip=" {{session.currentAttendees}} attendees, {{session.maxAttendees}} seats">
+                            <progressbar style="height:5px;" max="session.maxAttendees" value="session.currentAttendees" type="info"></progressbar>
+                        </div>
+
+                        <hr ng-if="(session.room != '' && session.room != 'room4') || mySchedule=='true' || search " />
+                    </div>
+                </div>
+                <hr ng-if="(session.room == '' || session.room == 'room4') && mySchedule!='true' && !search" style="border-color:gray" />
+            </li>
+        </ul>
     </div>
 
-    <ul class="media-list">
-        <li ng-repeat="session in sessions | filter:search | filter:{isRegistered:mySchedule}">
-            <div class="row">
-                <div class="col-lg-2">
-                    <h4 ng-if="(session.room == '' || session.room == 'room1') || mySchedule=='true'|| search "><span class="label label-default">{{ session.day }}, {{ session.time }}</span></h4>
-                </div>
-                <div class="col-lg-10">
-                    <p ng-if="session.brand!=''">
-                        <img ng-src="http://solution4.blob.core.windows.net/itcongress2014/logo-{{session.brand | lowercase}}.jpg" alt="{{session.brand}}" />
-                    </p>
-
-
-                    <p>
-                        {{ session.roomName }}
-                        <strong ng-if="session.room!=''">|</strong>
-                        <span ng-repeat="speaker in session.speakers">
-                            <a ng-href="/Speakers/{{speaker.id}}">{{speaker.name}}</a><span ng-show="!$last">,</span>
-                        </span>
-                    </p>
-                    <p><strong>{{ session.title }}</strong></p>
-                    <p>
-                        <button ng-click="addToSchedule(session.sessionId, session.day, session.time)" ng-if="$root.status.substr(0,8) == 'Approved' && session.room!='' && (session.currentAttendees < session.maxAttendees) && (currentToken==null || (currentToken && !session.isRegistered))" class="btn btn-xs btn-primary">Add to My Schedule</button>
-                        <button button ng-click="removeFromSchedule(session.sessionId)" ng-if="$root.status.substr(0,8) == 'Approved' && currentToken && session.isRegistered" class="btn btn-xs btn-success">Remove from My Schedule</button>
-                        <span ng-if="session.currentAttendees >= session.maxAttendees && session.room != '' && !session.isRegistered " class="label label-danger">No more places!</span>
-                        <!--<span ng-if="session.currentAttendees >= session.maxAttendees && session.room != '' " class2="label label-danger">No more places!</span>-->
-                    </p>
-
-                    <div ng-if="($root.role=='Admin' || $root.role=='PM') && session.room != ''" tooltip=" {{session.currentAttendees}} attendees, {{session.maxAttendees}} seats">
-                        <progressbar style="height:5px;" max="session.maxAttendees" value="session.currentAttendees" type="info"></progressbar>
-                    </div>
-
-                    <hr ng-if="(session.room != '' && session.room != 'room4') || mySchedule=='true' || search " />
-                </div>
-            </div>
-            <hr ng-if="(session.room == '' || session.room == 'room4') && mySchedule!='true' && !search" style="border-color:gray" />
-        </li>
-    </ul>
-
+    <div ng-if="sessions.length <= 2">
+        In curand...
+    </div>
 
 </div>

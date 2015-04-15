@@ -16,7 +16,7 @@
     };
 
     $scope.addToSchedule = function (sessionId, day, time) {
-        eventId = "itcongress2014";
+        eventId = "itcongress2015";
         if ($rootScope.userName == null) {
             $location.path('/Account/Login');
         } else {
@@ -41,7 +41,7 @@
     };
 
     $scope.removeFromSchedule = function (sessionId) {
-        eventId = "itcongress2014";
+        eventId = "itcongress2015";
         if ($rootScope.userName == null) {
             $location.path('/Account/Login');
         } else {
@@ -81,7 +81,7 @@
         })
         .then(function () {
             if ($rootScope.userName) {
-                homeService.getRegisteredSessions("itcongress2014", $rootScope.userName).then(function (data) {
+                homeService.getRegisteredSessions("itcongress2015", $rootScope.userName).then(function (data) {
                     $scope.sessions.forEach(function (session) {
                         if (isStringInArray(session.sessionId, data)) {
                             session.isRegistered = true;
@@ -99,10 +99,10 @@
         tmpArray = rowKey.split('-');
         switch (tmpArray[0]) {
             case "day1":
-                return "21 May";
+                return "13 May";
                 break;
             case "day2":
-                return "22 May";
+                return "14 May";
                 break;
             default:
                 return "DayError"

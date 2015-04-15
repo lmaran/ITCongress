@@ -1,47 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<bundle minify="true" runOnBuild="true" output="scripts.js" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://vswebessentials.com/schemas/v1/bundle.xsd">
-  <!--The order of the <file> elements determines the order of the file contents when bundled.-->
-
-  <!-- Angular Core Modules-->
-  <file>/Scripts/custom-version/angular-sanitize.js</file>
-  <file>/Scripts/custom-version/angular-cookies.js</file>
-  <file>/Scripts/custom-version/angular-route.js</file>
-  <!--<file>/Scripts/custom-version/angular-animate.js</file>-->
-
-
-  <!-- Angular Plugins -->
-  <file>/Scripts/angular-translate.js</file>
-  <file>/Scripts/angular-translate-loader-static-files.js</file>
-  <file>/Scripts/angular-translate-storage-cookie.js</file>
-  <file>/Scripts/angular-translate-storage-local.js</file>
-
-  <!-- Other Plugins -->
-  <!--<file>/Scripts/toastr.js</file>-->
-
-  <!-- Application files-->
-  <!-- AngularJS Style Guide: https://github.com/mgechev/angularjs-style-guide -->
-  <file>/App/app.js</file>
-  
-  <file>/App/controllers/homeController.js</file>
-  <file>/App/controllers/navbarController.js</file>
-  <file>/App/controllers/registerController.js</file>
-  <file>/App/controllers/loginController.js</file>
-  <file>/App/controllers/userController.js</file>
-  <file>/App/controllers/whiteListController.js</file>
-  <file>/App/controllers/confirmController.js</file>
-  <file>/App/controllers/alertController.js</file>
-  <file>/App/controllers/speakerController.js</file>
-  <file>/App/controllers/resetPasswordsController.js</file>
-
-  <file>/App/services/homeService.js</file>
-  <file>/App/services/authService.js</file>
-  <file>/App/services/userService.js</file>
-  <file>/App/services/whiteListService.js</file>
-  <file>/App/services/dialogService.js</file>
-  <file>/App/services/speakerService.js</file>
-
-  <file>/App/services/authInterceptor.js</file>
-
-  <file>/App/directives/ngMatch.js</file>
-
+<bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://vswebessentials.com/schemas/v1/bundle.xsd">
+  <settings>
+    <!--Determines if the bundle file should be automatically optimized after creation/update.-->
+    <minify>true</minify>
+    <!--Determin whether to generate/re-generate this bundle on building the solution.-->
+    <runOnBuild>true</runOnBuild>
+    <!--Specifies a custom subfolder to save files to. By default, compiled output will be placed in the same folder and nested under the original file.-->
+    <outputDirectory />
+  </settings>
+  <!--The order of the <file> elements determines the order of the files in the bundle.-->
+  <files>
+    
+	<!--<file>/bower_components/angular-bootstrap/ui-bootstrap-tpls.js</file>-->
+      
+	<file>/Scripts/custom-version/ui-bootstrap-tpls.js</file>
+    <file>/Scripts/custom-version/angular-sanitize.js</file>
+    <!--<file>/Scripts/custom-version/angular-cookies.js</file>-->
+    <file>/Scripts/custom-version/angular-route.js</file>
+    <file>/App/app.js</file>
+    <file>/App/controllers/homeController.js</file>
+    <file>/App/controllers/navbarController.js</file>
+    <file>/App/controllers/registerController.js</file>
+    <file>/App/controllers/loginController.js</file>
+    <file>/App/controllers/userController.js</file>
+    <file>/App/controllers/whiteListController.js</file>
+    <file>/App/controllers/confirmController.js</file>
+    <file>/App/controllers/alertController.js</file>
+    <file>/App/controllers/speakerController.js</file>
+    <file>/App/controllers/resetPasswordsController.js</file>
+      <file>/App/controllers/userDetailsController.js</file>
+    <file>/App/services/homeService.js</file>
+    <file>/App/services/authService.js</file>
+    <file>/App/services/userService.js</file>
+    <file>/App/services/whiteListService.js</file>
+    <file>/App/services/dialogService.js</file>
+    <file>/App/services/speakerService.js</file>
+    <file>/App/services/authInterceptor.js</file>
+    <file>/App/directives/ngMatch.js</file>
+  </files>
 </bundle>

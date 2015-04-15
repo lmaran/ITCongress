@@ -1,68 +1,23 @@
 ﻿<div class="container body-content">
-    <h2>Register</h2>
+    <h2>Set password</h2>
 
     <hr />
 
     <form ng-submit="submit(userForm)" name="userForm" class="form-horizontal max-width" role="form" novalidate>
         <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
 
-        <div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid && submitted }">
-            <label class="col-sm-2 control-label" for="Hometown">Last Name</label>
-            <div class="col-sm-4">
-                <input class="form-control" ng-model="user.lastName" type="text" name="lastName" placeholder="Nume de Familie" required />
-                <p ng-show="userForm.lastName.$invalid  && submitted" class="help-block">This field is required.</p>
-            </div>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error' : userForm.firstName.$invalid && submitted }">
-            <label class="col-sm-2 control-label" for="FirstName">First Name</label>
-            <div class="col-sm-4">
-                <input class="form-control" ng-model="user.firstName" type="text" name="firstName" placeholder="Prenume" required />
-                <p ng-show="userForm.firstName.$invalid  && submitted" class="help-block">This field is required.</p>
-            </div>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error' : userForm.phoneNumber.$invalid && submitted }">
-            <label class="col-sm-2 control-label" for="PhoneNumber">Phone Number</label>
-            <div class="col-sm-4">
-                <input class="form-control" ng-model="user.phoneNumber" type="text" name="phoneNumber" placeholder="Telefon Mobil" required />
-                <p ng-show="userForm.phoneNumber.$invalid  && submitted" class="help-block">This field is required.</p>
-            </div>
-        </div>
-
         <div class="form-group  has-feedback" ng-class="{ 'has-error' : userForm.email.$invalid && submitted }">
             <label class="col-sm-2 control-label" for="Email">Email</label>
             <div class="col-sm-4">
-
                 <input class="form-control" ng-model="user.email" ng-blur="checkEmail()" type="email" name="email" placeholder="Email" required />
                 <span ng-show="isApproved" style="color:green" class="glyphicon glyphicon-ok form-control-feedback"></span>
-                <span ng-show="notApproved" style="color:orange" class="glyphicon glyphicon-warning-sign form-control-feedback" popover="Deoarece aceasta adresa de email nu exista in baza noastra de date va rugam sa asteptati ca inregistrarea sa fie activata de catre echipa IT Congress 2014. Un email de confirmare a activarii contului va fi trimis pe aceasta adresa in urmatoarele 24 de ore." popover-trigger="mouseenter" popover-placement="right"></span>
+                <!--<span ng-show="notApproved" style="color:orange" class="glyphicon glyphicon-warning-sign form-control-feedback" popover="Deoarece aceasta adresa de email nu exista in baza noastra de date va rugam sa asteptati ca inregistrarea sa fie activata de catre echipa IT Congress. Un email de confirmare a activarii contului va fi trimis pe aceasta adresa in urmatoarele 24 de ore." popover-trigger="mouseenter" popover-placement="right"></span>-->
 
                 <p ng-show="userForm.email.$invalid  && submitted" class="help-block">Enter a valid email.</p>
-                <p ng-if="notApproved" style="color:orange" class="help-block">Deoarece aceasta adresa de email nu exista in baza noastra de date va rugam sa asteptati ca inregistrarea sa fie activata de catre echipa IT Congress 2014. Un email de confirmare a activarii contului va fi trimis pe aceasta adresa in urmatoarele 24 de ore.</p>
+                <!--<p ng-if="notApproved" style="color:orange" class="help-block">Deoarece aceasta adresa de email nu exista in baza noastra de date va rugam sa asteptati ca inregistrarea sa fie activata de catre echipa IT Congress. Un email de confirmare a activarii contului va fi trimis pe aceasta adresa in urmatoarele 24 de ore.</p>-->
 
             </div>
         </div>
-        <div class="form-group" ng-class="{ 'has-error' : userForm.company.$invalid && submitted }">
-            <label class="col-sm-2 control-label" for="Company">Company</label>
-            <div class="col-sm-4">
-                <input class="form-control" ng-model="user.company" type="text" name="company" placeholder="Firma / Institutie" required />
-                <p ng-show="userForm.company.$invalid  && submitted" class="help-block">This field is required.</p>
-            </div>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error' : userForm.hometown.$invalid && submitted }">
-            <label class="col-sm-2 control-label" for="Hometown">City</label>
-            <div class="col-sm-4">
-                <input class="form-control" ng-model="user.hometown" type="text" name="hometown" placeholder="Localitate" required />
-                <p ng-show="userForm.hometown.$invalid  && submitted" class="help-block">This field is required.</p>
-            </div>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error' : userForm.title.$invalid && submitted }">
-            <label class="col-sm-2 control-label" for="Title">Title</label>
-            <div class="col-sm-4">
-                <input class="form-control" ng-model="user.title" type="text" name="title" placeholder="Functie" required />
-                <p ng-show="userForm.title.$invalid  && submitted" class="help-block">This field is required.</p>
-            </div>
-        </div>
-
         <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && submitted }">
             <label class="col-sm-2 control-label" for="Password">Password</label>
             <div class="col-sm-4">
@@ -81,7 +36,13 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-sm-10">
-                <input type="submit" value="Register" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+
+        <div ng-if="!hasUserDetails" class="form-group">
+            <div class="col-sm-4 col-sm-offset-2">
+                <p style="color:orange" class="help-block">Pentru a putea crea acest cont, va rugam sa va inregistrati folosind link-ul din invitatia primita pe email.</p>
             </div>
         </div>
 

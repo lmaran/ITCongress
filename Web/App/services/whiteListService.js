@@ -3,7 +3,7 @@
     var factory = {};
 
     factory.getWhiteList = function () {
-        return $http.get('/api/itcongress2014/whiteList').then(function (result) {
+        return $http.get('/api/itcongress2015/whiteList').then(function (result) {
             return result.data;
         });
     };

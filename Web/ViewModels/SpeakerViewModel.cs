@@ -9,7 +9,7 @@ namespace Web.ViewModels
 
     public class SpeakerViewModel
     {
-        public string EventId { get; set; } // Ex: itcongress2014
+        public string EventId { get; set; } // Ex: itcongress2015
         public string SpeakerId { get; set; } // slug(fullName) Ex: lucian-maran
 
         public string Name { get; set; } // full name

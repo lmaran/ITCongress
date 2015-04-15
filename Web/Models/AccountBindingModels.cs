@@ -68,6 +68,9 @@ namespace Web.Models
 
         [Display(Name = "Company")]
         public string Company { get; set; }
+
+        [Display(Name = "Owner")]
+        public string Owner { get; set; }
     }
 
     public class RegisterExternalBindingModel

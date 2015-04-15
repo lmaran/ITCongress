@@ -30,7 +30,8 @@ namespace Web.Controllers
                 Company = x.Company,
                 City = x.Hometown,
                 Title = x.Title,
-                Status = x.Status
+                Status = x.Status,
+                Owner = x.Owner
             });
         }
 

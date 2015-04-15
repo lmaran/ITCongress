@@ -1,4 +1,4 @@
-﻿app.controller('navbarController', ['$scope', '$location', '$translate', '$rootScope', '$window', function ($scope, $location, $translate, $rootScope, $window) {
+﻿app.controller('navbarController', ['$scope', '$location', '$rootScope', '$window', function ($scope, $location, $rootScope, $window) {
 
     // Get currentToken from localStorage
     $rootScope.currentToken = $window.localStorage.token || null;
@@ -7,7 +7,7 @@
     $rootScope.status = $window.localStorage.status || null;
     
     $scope.menu = [{
-        'title': 'Home',
+        'title': 'Agenda',
         'link': '/'
     }
     ,{
@@ -40,8 +40,9 @@
         return route === $location.path();
     };
 
-    $scope.changeLanguage = function (langKey) {
-        $translate.use(langKey);
+    $scope.isActiveAdmin = function () {
+        if ($location.path() == '/Admin/Users' || $location.path() == '/Admin/WhiteList' || $location.path() == '/Admin/ResetPasswords' || $location.path() == '/Admin/UserDetails')
+            return true;
     };
 
 }]);

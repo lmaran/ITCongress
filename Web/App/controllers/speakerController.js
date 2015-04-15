@@ -7,7 +7,7 @@
 
     function init() {
 
-        speakerService.getSpeakers("itcongress2014").then(function (data) {
+        speakerService.getSpeakers("itcongress2015").then(function (data) {
             $scope.speakers = data;
         })
         .catch(function (err) {

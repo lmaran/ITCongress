@@ -2,28 +2,34 @@
 
     <h2>Speakers</h2>
 
-    <div class="row">
-        <div class="col-md-3 pull-right">
-            <div class="input-group">
-                <input ng-model="search" name="newEmail" type="text" class="form-control" placeholder="Search">
-                <span class="input-group-btn"><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button></span>
+    <div ng-if="speakers.length > 2">
+        <div class="row">
+            <div class="col-md-3 pull-right">
+                <div class="input-group">
+                    <input ng-model="search" name="newEmail" type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn"><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button></span>
+                </div>
             </div>
         </div>
+
+        <ul class="media-list">
+            <li class="media" data-ng-repeat="speaker in speakers | filter:search">
+                <a class="pull-left" href="#">
+                    <img ng-if="speaker.hasPicture" class="img-thumbnail media-object" ng-src="http://solution4.blob.core.windows.net/itcongress2015/{{speaker.speakerId}}-140-bw.jpg" alt="{{speaker.name}}" />
+                    <img ng-if="!speaker.hasPicture" class="img-thumbnail media-object" ng-src="http://solution4.blob.core.windows.net/itcongress2015/placeholder.jpg" alt="placeholder" />
+                </a>
+                <div class="media-body">
+                    <h4 style="color:#3276b1" class="media-heading"><strong>{{speaker.name}}</strong></h4>
+                    <p class="media-heading"><strong>{{speaker.title}}</strong></p>
+                    <p>{{speaker.bio}}</p>
+                </div>
+            </li>
+        </ul>
+
     </div>
 
-    <ul class="media-list">
-        <li class="media" data-ng-repeat="speaker in speakers | filter:search">
-            <a class="pull-left" href="#">
-                <img ng-if="speaker.hasPicture" class="img-thumbnail media-object" ng-src="http://solution4.blob.core.windows.net/itcongress2014/{{speaker.speakerId}}-140-bw.jpg" alt="{{speaker.name}}" />
-                <img ng-if="!speaker.hasPicture" class="img-thumbnail media-object" ng-src="http://solution4.blob.core.windows.net/itcongress2014/placeholder.jpg" alt="placeholder" />
-            </a>
-            <div class="media-body">
-                <h4 style="color:#3276b1" class="media-heading"><strong>{{speaker.name}}</strong></h4>
-                <p class="media-heading"><strong>{{speaker.title}}</strong></p>
-                <p>{{speaker.bio}}</p>
-            </div>
-        </li>
-    </ul>
-
+    <div ng-if="speakers.length <= 2">
+        In curand...
+    </div>
 
 </div>

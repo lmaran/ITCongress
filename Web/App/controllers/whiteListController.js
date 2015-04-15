@@ -5,7 +5,7 @@
     init();
 
     $scope.delete = function (email) {
-        eventId = "itcongress2014";
+        eventId = "itcongress2015";
         dialogService.confirm('Click ok to delete ' + email + ', otherwise click cancel.', 'Delete Email')
             .then(function () {
 
@@ -29,7 +29,7 @@
     };
 
     $scope.add = function () {
-        eventId = "itcongress2014";
+        eventId = "itcongress2015";
         whiteListService.add(eventId, $scope.newEmail).then(function () {
             $scope.whiteList.push($scope.newEmail);
         })

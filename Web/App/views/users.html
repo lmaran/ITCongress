@@ -17,11 +17,11 @@
                     <th>Id</th>
                     <th>LastName</th>
                     <th>FirstName</th>
+                    <th>Title</th>
                     <th>PhoneNumber</th>
                     <th>Email</th>
                     <th>Company</th>
-                    <th>City</th>
-                    <th>Title</th>
+                    <th>Owner</th>
                     <th>Status</th>
                     <th></th>
                 </tr>
@@ -31,11 +31,11 @@
                     <td>{{ user.id2 }}</td>
                     <td>{{ user.lastName }}</td>
                     <td>{{ user.firstName }}</td>
+                    <td>{{ user.title }}</td>
                     <td>{{ user.phoneNumber }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.company }}</td>
-                    <td>{{ user.city }}</td>
-                    <td>{{ user.title }}</td>
+                    <td>{{ user.owner }}</td>
                     <td>{{ user.status }}</td>
                     <td>
                         <button ng-if="user.status=='WaitingForApproval' || user.status=='Rejected'" type="button" class="btn btn-xs btn-success" ng-click="changeStatus(user.id, 'Approved')"><span class="glyphicon glyphicon-thumbs-up"></span></button>

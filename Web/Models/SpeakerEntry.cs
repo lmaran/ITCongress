@@ -11,7 +11,7 @@ namespace Web.Models
     {
         public SpeakerEntry()
         {
-            base.PartitionKey = "itcongress2014";
+            base.PartitionKey = "itcongress2015";
             base.RowKey = RemainingTime.Seconds().ToString() + "_" + Guid.NewGuid().ToString(); //ca sa pot afisa ultimele "x" inregistrari...vezi "AzureTable Strategy.docx"
         }
 

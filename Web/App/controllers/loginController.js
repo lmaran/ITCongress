@@ -7,6 +7,8 @@
 
     $scope.submit = function (userCredentials) {
         //authService.login($scope.user)
+        //alert('aaa');
+        //return false;
         authService.login(userCredentials)
             .then(function (data) {
                 $window.localStorage.token = data.access_token;
@@ -40,5 +42,12 @@
             });
 
     };
+
+    $scope.goToRegister = function () {
+        if ($scope.user.userName && $scope.user.userName.length > 0)
+            $location.path('/Account/Register').search('email', $scope.user.userName);
+        else
+            $location.path('/Account/Register');
+    }
    
 }]);

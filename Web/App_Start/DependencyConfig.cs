@@ -19,6 +19,7 @@ namespace Web.App_Start
             container.RegisterType<IWhiteListRepository, WhiteListRepository>();
             container.RegisterType<IAttendeeRepository, AttendeeRepository>();
             container.RegisterType<ISpeakerRepository, SpeakerRepository>();
+            container.RegisterType<IUserDetailsRepository, UserDetailsRepository>();
 
             config.DependencyResolver = new UnityResolver(container);
         }

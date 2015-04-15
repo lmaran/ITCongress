@@ -404,7 +404,7 @@ namespace Web.Controllers
             var status = "ApprovedByDefault";
 
             var _whiteListRepository = new WhiteListRepository(); // TODO: re-factor this
-            var tmp = _whiteListRepository.Get("itcongress2014", model.Email);
+            var tmp = _whiteListRepository.Get("itcongress2015", model.Email);
             if (tmp == 0) //not found
             {
                 status = "WaitingForApproval";
@@ -414,7 +414,7 @@ namespace Web.Controllers
             long id2 = repo.getMaxId() + 1;
             // *****************
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, Hometown = model.Hometown, PhoneNumber = model.PhoneNumber,
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, Hometown = model.Hometown, PhoneNumber = model.PhoneNumber, Owner = model.Owner,
             FirstName = model.FirstName, LastName = model.LastName, Title = model.Title, Company = model.Company, Status = status, Id2=id2};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
