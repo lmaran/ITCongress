@@ -103,7 +103,7 @@ namespace ImportWhiteList
                 var list = new List<DynamicTableEntity>();
 
                 // Read the file, line by line.
-                System.IO.StreamReader file = new System.IO.StreamReader("c:\\LandingPage2015.csv");
+                System.IO.StreamReader file = new System.IO.StreamReader("c:\\Data\\LandingPage2015.csv");
                 while ((line = file.ReadLine()) != null)
                 {
                     var values = line.Split(',');

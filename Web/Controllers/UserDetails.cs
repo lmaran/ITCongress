@@ -6,7 +6,7 @@ using System.Web.Http.Results;
 using Web.Models;
 using Web.Repositories;
 using Web.ViewModels;
-
+using System.Linq;
 
 namespace Web.Controllers
 {
@@ -23,9 +23,31 @@ namespace Web.Controllers
 
         //[Authorize(Roles = "Admin")]
         [Route("api/{eventId}/userdetails")]
-        public IEnumerable<UserDetailViewModel> GetAll(string eventId)
+        public IEnumerable<UserDetailViewModelWithPsw> GetAll(string eventId)
         {
-            return _userDetailsRepository.GetAll(eventId);
+
+            var context = new ApplicationDbContext();
+            var allUsersWithPsw = new List<string>();
+            allUsersWithPsw = context.Users.Select(x => x.Email).ToList();
+
+            var allUserDetails =  _userDetailsRepository.GetAll(eventId);
+
+            var response = new List<UserDetailViewModelWithPsw>();
+            foreach (var userDetails in allUserDetails)
+            {
+                var usr = new UserDetailViewModelWithPsw(){
+                        Email = userDetails.Email,
+                        FirstName= userDetails.FirstName,
+                        LastName = userDetails.LastName,
+                        Company= userDetails.Company,
+                        Title= userDetails.Title,
+                        Phone= userDetails.Phone,
+                        Owner= userDetails.Owner,
+                        HasPassword = allUsersWithPsw.Any(x => x == userDetails.Email)
+                };
+                response.Add(usr);
+            };
+            return response;
         }
 
         [HttpGet]

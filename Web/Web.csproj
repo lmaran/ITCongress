@@ -528,6 +528,7 @@
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\SpeakerController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserDetails.cs" />
     <Compile Include="Controllers\WhiteListController.cs" />
     <Compile Include="Controllers\EventsController.cs" />

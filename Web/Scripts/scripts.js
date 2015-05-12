@@ -5673,7 +5673,7 @@ app.controller('registerController', ['$scope', '$rootScope', '$http', '$window'
 
                         var msg = '';
                         if (data.status.substr(0, 8) == 'Approved') {
-                            msg = 'Contul dvs este ACTIV. In orice moment puteti accesa si configura  agenda personala utilizand adrea de email si parola folosite la inregistrare.';
+                            msg = 'Contul dvs este ACTIV. In orice moment puteti accesa si configura  agenda personala utilizand adresa de email si parola folosite la inregistrare.';
                         } else {
                             msg = 'Contul dvs este INACTIV. Deoarece aceasta adresa de email nu exista in baza noastra de date va rugam sa asteptati ca inregistrarea sa fie activata de catre echipa IT Congress. Un email de confirmare a activarii contului va fi trimis pe aceasta adresa in urmatoarele 24 de ore.';
                         }
